@@ -38,8 +38,8 @@ export default {
           </div>
         </div>
         <div
-          v-for="item in [1, 1, 1, 1, 1, 1]"
-          data-aos="fade-in"
+          v-for="item in [1, 1, 1, 1, 1, 1, 1, 1, 1]"
+          data-aos="zoom-out-right"
           :key="item"
           class="focus:scale-105 bg-dark-300 text-gray-400 hover:bg-brew cursor-pointer group px-4 py-3 transition-all duration-300"
         >

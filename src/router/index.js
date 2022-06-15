@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import docs from "../views/APIs.vue";
 import home from "../views/HomeView.vue";
 import explorer from "../views/Explorer.vue";
 import proxy from "../views/ReverseProxy.vue";
@@ -17,6 +18,10 @@ const router = createRouter({
     {
       path: "/proxy",
       component: proxy,
+    },
+    {
+      path: "/apis",
+      component: docs,
     },
   ],
 });

@@ -43,8 +43,10 @@ export default {
         </div>
       </div>
 
-      <div class="space-y-1 py-1 px-1">
-        <div class="py-1 flex flex-wrap justify-center space-y-1">
+      <div class="space-y-1 px-1">
+        <div
+          class="py-1 space-y-1 flex flex-wrap justify-center border-b border-bray-400"
+        >
           <Nav
             name="Services"
             path="/services"
@@ -62,6 +64,23 @@ export default {
             path="/database"
             icon="fa-solid fa-database"
             theme="royal"
+          ></Nav>
+        </div>
+      </div>
+
+      <div class="space-y-1 px-1">
+        <div class="py-1 flex flex-wrap justify-center space-y-1">
+          <Nav
+            name="Settings"
+            path="/settings"
+            icon="fa-solid fa-gear"
+            theme="amethyst"
+          ></Nav>
+          <Nav
+            name="APIs"
+            path="/apis"
+            icon="fa-solid fa-book"
+            theme="amethyst"
           ></Nav>
         </div>
       </div>
