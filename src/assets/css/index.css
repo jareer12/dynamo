@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.sidebar-width {
+  width: 5%;
+}
+
+.mainframe-width {
+  width: 95%;
+}
+
+.fullscreen-height {
+  height: 120vh;
+}
+
+#content {
+  position: relative;
+}
+#content img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.tippy-box[data-theme~="brew"] {
+  background-color: #347aeb;
+  color: #fff;
+}
+.tippy-box[data-theme~="brew"][data-placement^="top"] > .tippy-arrow::before {
+  border-top-color: #347aeb;
+}
+.tippy-box[data-theme~="brew"][data-placement^="bottom"]
+  > .tippy-arrow::before {
+  border-bottom-color: #347aeb;
+}
+.tippy-box[data-theme~="brew"][data-placement^="left"] > .tippy-arrow::before {
+  border-left-color: #347aeb;
+}
+.tippy-box[data-theme~="brew"][data-placement^="right"] > .tippy-arrow::before {
+  border-right-color: #347aeb;
+}
+
+.tippy-box[data-theme~="royal"] {
+  background-color: #fe8c52;
+  color: #fff;
+}
+.tippy-box[data-theme~="royal"][data-placement^="top"] > .tippy-arrow::before {
+  border-top-color: #fe8c52;
+}
+.tippy-box[data-theme~="royal"][data-placement^="bottom"]
+  > .tippy-arrow::before {
+  border-bottom-color: #fe8c52;
+}
+.tippy-box[data-theme~="royal"][data-placement^="left"] > .tippy-arrow::before {
+  border-left-color: #fe8c52;
+}
+.tippy-box[data-theme~="royal"][data-placement^="right"]
+  > .tippy-arrow::before {
+  border-right-color: #fe8c52;
+}
