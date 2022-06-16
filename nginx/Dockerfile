@@ -1,6 +1,6 @@
-FROM nginx:1.21.6
+FROM nginx
 
 COPY nginx.conf /etc/nginx/sites-enabled/default.conf
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 80
