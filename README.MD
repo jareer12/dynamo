@@ -13,5 +13,5 @@
 ## Installation
 
 ```shell
-docker ...
+docker-compose up -d
 ```

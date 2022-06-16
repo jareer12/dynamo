@@ -1,11 +1,8 @@
 import dotenv from "dotenv";
 import express from "express";
 import ProxyRoute from "../routes/proxy";
-import ReverseProxy from "../plugins/ReverseProxy";
 
 dotenv.config();
-ReverseProxy.start();
-
 const app = express();
 
 app.use("*", function (req: any, res: any, next: Function) {
