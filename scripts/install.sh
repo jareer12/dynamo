@@ -1,2 +1,2 @@
-docker build -t dynamo .
-docker run -it --rm --name dynamo dynamo
+docker build --rm --tag dynamo .
+docker run -d -p 7000:7000 -p 3000:3000 -it --name dynamo dynamo

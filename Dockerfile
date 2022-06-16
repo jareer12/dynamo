@@ -1,11 +1,13 @@
-FROM node:16
+FROM node:16.13.1
 WORKDIR /backend
 
 COPY ./server .
-RUN npm install -g npm@8.12.2
 RUN ls
 
 RUN npm install
-CMD ["node", "./src/index.js"]
+CMD ["npm", "run", "start"]
 
-EXPOSE 7000
+FROM nginx
+COPY ./config/node/nginx.conf /etc/nginx/sites-enabled/default
+
+EXPOSE 7000 3000
