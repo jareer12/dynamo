@@ -12,14 +12,9 @@ class WebPlayer
         $data["Success"] = false;
         echo json_encode($data);
     }
-    function randstr($length)
+    function randstr($length = 12)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randstring = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randstring = $characters[rand(0, strlen($characters))];
-        }
-        return strtolower($randstring);
+        return strtoupper(substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"), 10, $length));
     }
 };
 

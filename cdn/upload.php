@@ -1,9 +1,9 @@
 <?php
 
 header("Content-type: application/json");
-include "./class/uploader.php";
-include "./class/master.php";
 include "./class/mysql.php";
+include "./class/master.php";
+include "./class/uploader.php";
 
 if (isset($_FILES["file"])) {
     if (isset($_POST["name"])) {
