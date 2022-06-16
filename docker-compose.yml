@@ -11,10 +11,17 @@ services:
     build: ./client
     ports:
       - "3000:3000"
-  nginx:
-    build: ./nginx
+  proxy:
+    restart: unless-stopped
+    image: nginx
     ports:
-      - "80:80"
+      - 80:${NGINX_PORT}
     depends_on:
-      - backend
-      - frontend
+      - webapp
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - node_network
+
+networks:
+  node_network:
