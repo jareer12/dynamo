@@ -6,9 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const proxy_1 = __importDefault(require("../routes/proxy"));
-const ReverseProxy_1 = __importDefault(require("../plugins/ReverseProxy"));
 dotenv_1.default.config();
-ReverseProxy_1.default.start();
 const app = (0, express_1.default)();
 app.use("*", function (req, res, next) {
     res.success = function (Data) {

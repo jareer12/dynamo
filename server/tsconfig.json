@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true
+  },
+  "include": ["./*/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
