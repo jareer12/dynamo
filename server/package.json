@@ -2,13 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "./src/Index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "dev": "npx ts-node ./src/index.ts",
-    "start": "node ./src/index.js",
+    "dev": "npx ts-node ./src/Index.ts",
+    "start": "node ./src/Index.js",
     "tsc": "npx tsc --watch"
   },
   "keywords": [],

@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  backend:
+    restart: on-failure
+    build: ./backend
+    ports:
+      - "7000:7000"
+  frontend:
+    restart: on-failure
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
