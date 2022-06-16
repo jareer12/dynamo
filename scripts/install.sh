@@ -1,2 +1,6 @@
-docker build --rm --tag dynamo .
-docker run -d -p 7000:7000 -p 3000:3000 -it --name dynamo dynamo
+rm -r Dynamo
+
+git clone https://github.com/jareer12/dashboard.git Dynamo
+cd Dynamo
+
+docker-compose up -d
