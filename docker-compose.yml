@@ -17,7 +17,7 @@ services:
     ports:
       - 80:${NGINX_PORT}
     depends_on:
-      - webapp
+      - backend
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
