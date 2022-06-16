@@ -8,8 +8,8 @@ export default {
 </script>
 
 <template>
-  <main class="w-auto h-full" data-aos="fade-right">
-    <section class="h-full bg-dark-400">
+  <main class="w-auto h-full border-r border-bray-400" data-aos="fade-right">
+    <section class="h-screen bg-dark-400">
       <div class="">
         <div
           class="py-1 space-y-1 flex flex-wrap justify-center border-b border-bray-400"

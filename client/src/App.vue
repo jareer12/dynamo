@@ -9,9 +9,9 @@ import MySidebar from "@/components/MySidebar.vue";
 </style>
 
 <template>
-  <main class="flex text-sm flex-wrap">
-    <div class="sidebar-width flex flex-wrap">
-      <div class="h-screen">
+  <main class="flex text-sm flex-wrap overflow-auto">
+    <div class="sidebar-width flex flex-wrap overflow-auto">
+      <div class="h-full overflow-auto">
         <MySidebar />
       </div>
     </div>
