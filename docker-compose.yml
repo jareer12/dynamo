@@ -19,7 +19,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:./nginx/default.conf
     networks:
       - node_network
 
