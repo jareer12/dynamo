@@ -1,7 +1,6 @@
-FROM ubuntu
+FROM nginx:1.21.6
 
-RUN apt-get -y update && apt-get -y install nginx
-COPY nginx.conf /etc/nginx/sites-enabled/default
+COPY nginx.conf /etc/nginx/sites-enabled/default.conf
+CMD ["nginx"]
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 EXPOSE 80
