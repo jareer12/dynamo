@@ -1,17 +1,17 @@
-# Dashboard
+# Dynamo
 
-## Agenda
+## Table of Contents
 
 - [Installation](/#Installation)
 
-## Minimum Requirements
+## Requirements(Minimum)
 
-- 2GB Ram
-- 1 CPU
-- 30GB
+- **2GB Ram**
+- **1 CPU**
+- **30GB**
 
 ## Installation
 
-```shell
+```sh
 docker-compose up -d
 ```
