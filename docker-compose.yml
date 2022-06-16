@@ -1,13 +1,13 @@
-version: "3.9"
+version: "3.8"
 services:
   backend:
     restart: on-failure
-    build: ./backend
+    build: ./server
     ports:
       - "7000:7000"
   frontend:
     restart: on-failure
-    build: ./frontend
+    build: ./client
     ports:
       - "3000:3000"
   nginx:
