@@ -4,13 +4,21 @@ services:
   backend:
     restart: on-failure
     build: ./server
+    container_name: DynamoNode
     ports:
       - "7000:7000"
+    networks:
+      - node_network
+
   frontend:
     restart: on-failure
+    container_name: DynamoProxy
     build: ./client
     ports:
       - "3000:3000"
+    networks:
+      - node_network
+
   proxy:
     restart: unless-stopped
     image: nginx
@@ -19,7 +27,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - ./nginx/default.conf:./nginx/default.conf
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
     networks:
       - node_network
 
