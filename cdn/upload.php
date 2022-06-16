@@ -5,15 +5,16 @@ include "./class/uploader.php";
 include "./class/master.php";
 include "./class/mysql.php";
 
-if ($_POST["file"]) {
-    if ($_POST["name"]) {
-        if ($_POST["location"]) {
+if (isset($_FILES["file"])) {
+    if (isset($_POST["name"])) {
+        if (isset($_POST["location"])) {
             $name = $_POST["name"];
+            $file = $_FILES["file"];
             $location = $_POST["location"];
 
-            $Data = $Uploader->upload($name, $location, $_POST["file"]);
+            $Data = $Cloud->upload($name, $location, $file);
             $Web->success([
-                "Message" => "Success",
+                "Message" => "Successfuly uploaded file",
                 "Data" => $Data
             ]);
         } else {
