@@ -1,3 +1,6 @@
+/shared2/*
+/shared/*
+
 */node_modules
 */server/*.js
 */test

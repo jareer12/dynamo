@@ -6,7 +6,7 @@
 
 ## Minimum Requirements
 
-- 1GB Ram
+- 2GB Ram
 - 1 CPU
 - 30GB
 
