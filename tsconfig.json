@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "module": "Node16",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": false
+  },
+  "include": ["./*/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
