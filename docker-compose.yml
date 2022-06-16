@@ -15,5 +15,6 @@ services:
     ports:
       - "80:80"
     depends_on:
+      - nginx
       - backend
       - frontend
