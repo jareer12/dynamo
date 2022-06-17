@@ -1,14 +1,16 @@
 FROM node:14.18-alpine as build-stage
-WORKDIR /app
-COPY package*.json ./
+
+COPY . .
+
 RUN npm install
-COPY ./ .
 RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build-stage /dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/sites-enabled/default
+
 CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 4545
