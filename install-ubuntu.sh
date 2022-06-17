@@ -1,7 +1,6 @@
+clear
 apt update
 apt install nginx
-
-killall nginx
 
 npm install forever -g
 

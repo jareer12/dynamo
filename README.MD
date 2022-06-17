@@ -2,7 +2,8 @@
 
 ## Table of Contents
 
-- [Installation](/#Installation)
+- [Shell Install](#Installation)
+- [Docker Install](#Installation)
 
 ## Requirements(Minimum)
 
@@ -12,8 +13,16 @@
 
 ## Installation
 
+## Docker
+
 ```sh
+git clone https://github.com/jareer12/dynamo.git Dynamo
+cd Dynamo
 docker-compose up -d
 ```
 
+## Shell
+
 ```shell
+wget -O - https://raw.githubusercontent.com/jareer12/dynamo/main/install-ubuntu.sh | bash
+```
