@@ -31,3 +31,6 @@ cd ./dynamo
 npm install
 echo "PUBLIC_PORT=7000" > .env
 forever start ./src/Index.js
+
+content=$(wget https://raw.githubusercontent.com/jareer12/dashboard/main/nginx/ubuntu.conf -q -O -)
+echo $content > /etc/nginx/sites-enabled/default
