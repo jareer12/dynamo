@@ -7,7 +7,7 @@
 
 ## Requirements(Minimum)
 
-- **2GB Ram**
+- **1GB Ram**
 - **1 CPU**
 - **30GB**
 
