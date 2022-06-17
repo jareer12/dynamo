@@ -19,7 +19,7 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-RUN forever start -c http-server dist --port 4545 --brotli --gzip --cors 
+RUN ls
 
-ENV HOST 0.0.0.0
+CMD ["forever" "start" "-c" "http-server" "dist" "--port" "4545" "--brotli" "--gzip" "--cors"] 
 EXPOSE 4545
