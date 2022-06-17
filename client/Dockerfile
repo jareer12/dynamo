@@ -1,11 +1,10 @@
 FROM node:16.13.1
-
-COPY package*.json ./
-RUN npm i -g http-server
-
-RUN npm install
 COPY . .
 
+RUN npm i -g http-server
+RUN npm install
+
 RUN npm run build
-CMD [ "http-server", "/dist" ]
+RUN http-server ./dist --port 3000
+
 EXPOSE 3000
