@@ -1,16 +1,14 @@
-FROM node
-
-WORKDIR /client
-COPY . /client/
-
-RUN npm install -g http-server
-RUN npm install -g forever
+FROM node:14.18-alpine as build-stage
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-
+COPY ./ .
 RUN npm run build
-RUN ls
 
-RUN forever start -c http-server dist --brotli --gzip --cors --port 8080
-# CMD ["forever" "start" "-c" "http-server" "dist" "--port" "4545" "--brotli" "--gzip" "--cors"] 
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
 
-EXPOSE 8080 4545 3000
+EXPOSE 4545
