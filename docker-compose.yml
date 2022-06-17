@@ -6,7 +6,7 @@ services:
     container_name: DynamoDashboard
     build: ./client
     ports:
-      - "3000:3000"
+      - "4545:4545"
     networks:
       - node_network
 
@@ -19,19 +19,19 @@ services:
     networks:
       - node_network
 
-  proxy:
-    restart: unless-stopped
-    container_name: DynamoProxy
-    image: nginx
-    ports:
-      - ${NGINX_PORT}:${NGINX_PORT}
-    depends_on:
-      - backend
-      - frontend
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/nginx.conf
-    networks:
-      - node_network
+  # proxy:
+  #   restart: unless-stopped
+  #   container_name: DynamoProxy
+  #   image: nginx
+  #   ports:
+  #     - ${NGINX_PORT}:${NGINX_PORT}
+  #   depends_on:
+  #     - backend
+  #     - frontend
+  #   volumes:
+  #     - ./nginx/default.conf:/etc/nginx/nginx.conf
+  #   networks:
+  #     - node_network
 
 networks:
   node_network:
