@@ -20,6 +20,6 @@ COPY . .
 RUN npm run build
 
 RUN forever start -c http-server dist --port 4545 --brotli --gzip --cors 
-ENV HOST 0.0.0.0
 
+ENV HOST 0.0.0.0
 EXPOSE 4545
