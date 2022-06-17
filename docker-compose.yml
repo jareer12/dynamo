@@ -12,7 +12,7 @@ services:
 
   frontend:
     restart: on-failure
-    container_name: DynamoProxy
+    container_name: DynamoDashboard
     build: ./client
     ports:
       - "3000:3000"
@@ -21,6 +21,7 @@ services:
 
   proxy:
     restart: unless-stopped
+    container_name: DynamoProxy
     image: nginx
     ports:
       - 80:${NGINX_PORT}
