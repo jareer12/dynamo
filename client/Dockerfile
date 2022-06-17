@@ -1,14 +1,13 @@
-FROM node:alpine as develop-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
+FROM alpine:3.13.2
+
+RUN apt install thttpd
+
+RUN adduser -D static
+USER static
+
 COPY . .
 
-FROM develop-stage as build-stage
+RUN npm install
 RUN npm run build
 
-FROM nginx:alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-
-EXPOSE 3000
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", "3000", "-d", "/dist", "-u", "static", "-l", "-", "-M", "60"]
