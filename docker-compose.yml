@@ -27,6 +27,7 @@ services:
       - ${NGINX_PORT}:${NGINX_PORT}
     depends_on:
       - backend
+      - frontend
     volumes:
       - ./nginx/default.conf:/etc/nginx/nginx.conf
     networks:
