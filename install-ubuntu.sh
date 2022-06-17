@@ -8,6 +8,8 @@ npm install forever -g
 cd /root
 rm -r Dynamo
 rm -r dynamo
+rm -r /root/dynamo
+rm -r /var/www/dynamofront
 
 git clone https://github.com/jareer12/dashboard.git Dynamo
 
@@ -32,5 +34,9 @@ npm install
 echo "PUBLIC_PORT=7000" > .env
 forever start ./src/Index.js
 
+NGINX_CONF=/etc/nginx/sites-enabled/default
+
+rm $NGINX_CONF
+touch $NGINX_CONF
 content=$(wget https://raw.githubusercontent.com/jareer12/dashboard/main/nginx/ubuntu.conf -q -O -)
-echo $content > /etc/nginx/sites-enabled/default
+echo $content >  $NGINX_CONF
