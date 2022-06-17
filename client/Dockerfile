@@ -5,11 +5,11 @@ RUN npm install -g forever
 
 WORKDIR /client
 
-COPY package*.json ./client/
+COPY package*.json /client/
 
 RUN npm install
 
-COPY . ./client/
+COPY . /client/
 
 RUN npm run build
 
