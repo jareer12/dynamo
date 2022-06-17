@@ -1,15 +1,16 @@
 FROM node
+
 WORKDIR /client
+COPY . /client/
 
 RUN npm install -g http-server
 RUN npm install -g forever
-
-COPY package*.json /client/
 RUN npm install
 
-COPY . /client/
 RUN npm run build
+RUN ls
 
-EXPOSE 8080
-RUN http-server dist
+RUN forever start -c http-server dist --brotli --gzip --cors --port 8080
 # CMD ["forever" "start" "-c" "http-server" "dist" "--port" "4545" "--brotli" "--gzip" "--cors"] 
+
+EXPOSE 8080 4545 3000
