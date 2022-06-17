@@ -1,6 +1,4 @@
-FROM alpine:3.13.2
-
-RUN apt install thttpd
+FROM node:16.13.1
 
 COPY . .
 
@@ -9,4 +7,5 @@ RUN npm run build
 
 RUN ls
 
-CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", "3000", "-d", "/dist", "-u", "static", "-l", "-", "-M", "60"]
+FROM python3
+RUN python3 -m http.server 3000
