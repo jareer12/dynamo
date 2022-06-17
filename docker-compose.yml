@@ -18,6 +18,7 @@ services:
       - backend
     ports:
       - "8080:8080"
+      - "4545:4545"
     networks:
       - node_network
 
