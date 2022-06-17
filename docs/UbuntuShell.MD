@@ -1,6 +1,6 @@
 # Install via Shell(Ubuntu)
 
-By default you will find the backend at `http://127.0.0.1:7000`. Also you will have to configure the [NGinx](#NGinx) file. Make sure you put your own `server_name` in the configure.
+By default you will find the backend at `http://127.0.0.1:7000`. Also you will have to configure the [NGinx](#NGinx) file located at `/etc/nginx/sites-enabled/default`. Make sure you put your own `server_name` in the configure.
 
 ```shell
 wget -O - https://raw.githubusercontent.com/jareer12/dynamo/main/install-ubuntu.sh | bash
@@ -9,6 +9,10 @@ wget -O - https://raw.githubusercontent.com/jareer12/dynamo/main/install-ubuntu.
 - [NGinx Config](#NGinx)
 
 # NGinx
+
+```shell
+nano /etc/nginx/sites-enabled/default
+```
 
 ```nginx
 server {

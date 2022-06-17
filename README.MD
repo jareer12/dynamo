@@ -23,7 +23,7 @@ docker-compose up -d
 
 ## Shell
 
-Here is a one liner to install Dynamo. Make sure nothing is running on ports `7000` and `80`, also kill all running instances of NGinx.
+Here is a one-liner to install Dynamo. Make sure nothing is running on ports `7000` and `80`, also kill all running instances of NGinx.
 
 - [Documentation](./docs/UbuntuShell.MD)
 
