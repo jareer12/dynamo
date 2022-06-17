@@ -13,4 +13,4 @@ COPY nginx.conf /etc/nginx/sites-enabled/default
 
 CMD ["nginx", "-g", "daemon off;"]
 
-EXPOSE 4545
+EXPOSE 8080
