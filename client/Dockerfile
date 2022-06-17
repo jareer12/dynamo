@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node
 
 # install simple http server for serving static content
 RUN npm install -g http-server
@@ -14,11 +14,10 @@ COPY package*.json ./client/
 RUN npm install
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY . .
+COPY . ./client/
 
 # build app for production with minification
 RUN npm run build
-
 
 # CMD ["forever" "start" "-c" "http-server" "dist" "--port" "4545" "--brotli" "--gzip" "--cors"] 
 CMD ["http-server" "dist" "--port" "4545"]
