@@ -22,19 +22,19 @@ services:
     networks:
       - node_network
 
-  # proxy:
-  #   restart: unless-stopped
-  #   container_name: DynamoProxy
-  #   image: nginx
-  #   ports:
-  #     - ${NGINX_PORT}:${NGINX_PORT}
-  #   depends_on:
-  #     - backend
-  #     - frontend
-  #   volumes:
-  #     - ./nginx/default.conf:/etc/nginx/nginx.conf
-  #   networks:
-  #     - node_network
+  proxy:
+    restart: always
+    container_name: DynamoProxy
+    image: nginx
+    ports:
+      - ${NGINX_PORT}:${NGINX_PORT}
+    depends_on:
+      - backend
+      - frontend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
+    networks:
+      - node_network
 
 networks:
   node_network:
