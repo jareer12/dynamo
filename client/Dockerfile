@@ -3,13 +3,15 @@
 # 2) nginx stage to serve frontend assets
 
 # Name the node stage "builder"
-FROM node:10 AS builder
+FROM node:16.13.1 AS builder
+RUN ls
 
 # Copy all files from current directory to working dir in image
 COPY . .
 
 # install node modules and build assets
-RUN npm install && npm run build
+RUN npm install
+RUN npm run build
 
 # nginx state for serving content
 FROM nginx:alpine
@@ -23,5 +25,7 @@ RUN rm -rf ./*
 # Copy static assets from builder stage
 COPY --from=builder /dist .
 
+RUN ls
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
