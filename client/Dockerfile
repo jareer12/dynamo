@@ -1,10 +1,14 @@
-FROM node:16.13.1
+FROM node:alpine as develop-stage
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . .
 
-RUN npm i -g http-server
-RUN npm install
-
+FROM develop-stage as build-stage
 RUN npm run build
-RUN http-server ./dist --port 3000
+
+FROM nginx:alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]

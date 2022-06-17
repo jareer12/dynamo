@@ -24,7 +24,7 @@ services:
     container_name: DynamoProxy
     image: nginx
     ports:
-      - 80:${NGINX_PORT}
+      - ${NGINX_PORT}:${NGINX_PORT}
     depends_on:
       - backend
     volumes:
