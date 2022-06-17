@@ -13,6 +13,6 @@ COPY . /client/
 
 RUN npm run build
 
+EXPOSE 8080
 # CMD ["forever" "start" "-c" "http-server" "dist" "--port" "4545" "--brotli" "--gzip" "--cors"] 
-CMD ["http-server" "dist" "--port" "4545"]
-EXPOSE 4545
+CMD ["http-server" "dist"]
