@@ -13,6 +13,7 @@ import App from "./App.vue";
 AOS.init();
 
 const app = createApp(App);
+
 app.use(router);
 app.use(ContextMenu);
 app.use(ContextMenuItem);

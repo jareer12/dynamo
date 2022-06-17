@@ -1,7 +1,7 @@
 
 */node_modules
-*/server/*.js
 */test
+/server/clouds/*/
 
 */vendor/
 npm-debug.log

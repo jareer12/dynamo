@@ -1,6 +1,23 @@
 <script>
 export default {
   name: "Main",
+  data() {
+    return {
+      clouds: [],
+    };
+  },
+  mounted() {
+    try {
+      fetch(`${import.meta.env.VITE_SERVER}/storage/clouds`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.Success === true) {
+            this.clouds = data.Data;
+          }
+        })
+        .catch((err) => {});
+    } catch {}
+  },
 };
 </script>
 
@@ -14,7 +31,7 @@ export default {
       <div class="text-white mt-10 px-10 grid-cols-3 grid gap-5">
         <div
           class="hover:scale-105 duration-300"
-          v-for="item in [1, 1, 1, 1, 1, 1, 1, 1, 1]"
+          v-for="item in clouds"
           :key="item"
         >
           <div class="hidden">
@@ -27,7 +44,7 @@ export default {
             <div class="grid grid-cols-2 items-center flex-wrap">
               <div>
                 <h2 class="font-bold duration-300 group-hover:text-white">
-                  CDN #{{ number }}
+                  {{ item }}
                 </h2>
               </div>
               <div class="float-right">
