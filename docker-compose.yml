@@ -1,21 +1,23 @@
 version: "3.8"
 
 services:
-  frontend:
-    restart: on-failure
-    container_name: DynamoDashboard
-    build: ./client
-    ports:
-      - "4545:4545"
-    networks:
-      - node_network
-
   backend:
     restart: on-failure
     build: ./server
     container_name: DynamoNode
     ports:
       - "7000:7000"
+    networks:
+      - node_network
+
+  frontend:
+    restart: on-failure
+    container_name: DynamoDashboard
+    build: ./client
+    depends_on:
+      - backend
+    ports:
+      - "4545:4545"
     networks:
       - node_network
 
