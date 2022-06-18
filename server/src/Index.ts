@@ -1,14 +1,11 @@
-import { Response } from "./Types";
-import "../plugins/proxy";
-
-import fs from "fs";
-import ejs from "ejs";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import body from "body-parser";
 import { basename } from "path";
 
+import "../plugins/proxy";
+import { Response } from "./Types";
 import InfoRoute from "../routes/info";
 import ProxyRoute from "../routes/proxy";
 import StorageRoute from "../routes/storage";

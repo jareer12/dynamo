@@ -1,4 +1,4 @@
-import DB from "../plugins/sql";
+// import DB from "../plugins/sql";
 import { spawn } from "child_process";
 import { readFileSync, writeFileSync } from "fs";
 
@@ -36,15 +36,15 @@ server {
     } catch (err) {
       console.log(err);
     }
-    try {
-      DB.getReverseProxies(50)
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch {}
+    // try {
+    //   DB.getReverseProxies(50)
+    //     .then((data) => {
+    //       console.log(data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // } catch {}
     spawn("nginx");
   } catch (err) {
     console.log(err);

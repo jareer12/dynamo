@@ -3,12 +3,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("../plugins/proxy");
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const path_1 = require("path");
+require("../plugins/proxy");
 const info_1 = __importDefault(require("../routes/info"));
 const proxy_1 = __importDefault(require("../routes/proxy"));
 const storage_1 = __importDefault(require("../routes/storage"));

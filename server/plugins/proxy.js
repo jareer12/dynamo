@@ -1,9 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const sql_1 = __importDefault(require("../plugins/sql"));
 const child_process_1 = require("child_process");
 const fs_1 = require("fs");
 const OS = process.platform;
@@ -39,16 +35,6 @@ server {
         catch (err) {
             console.log(err);
         }
-        try {
-            sql_1.default.getReverseProxies(50)
-                .then((data) => {
-                console.log(data);
-            })
-                .catch((err) => {
-                console.log(err);
-            });
-        }
-        catch { }
         (0, child_process_1.spawn)("nginx");
     }
     catch (err) {
