@@ -9,12 +9,18 @@ const mysql2_1 = __importDefault(require("mysql2"));
 const fs_1 = __importDefault(require("fs"));
 const __root = __dirname.replace((0, path_1.basename)(__dirname), "");
 try {
-    var conn = mysql2_1.default.createConnection({
-        host: "localhost",
-        database: "test",
-        password: "",
-        user: "root",
-    });
+    if (process.env.SQL_USER && process.env.SQL_HOST) {
+        var conn = mysql2_1.default.createConnection({
+            port: parseFloat(process.env.SQL_PORT),
+            database: process.env.SQL_DATABASE,
+            password: process.env.SQL_PASS,
+            host: process.env.SQL_HOST,
+            user: process.env.SQL_USER,
+        });
+    }
+    else {
+        console.log(`MySQL config not found`);
+    }
 }
 catch {
     console.log(`Unable to connect to mysql, re-check Mysql config and make sure it's installed`);

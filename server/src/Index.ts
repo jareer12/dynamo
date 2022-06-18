@@ -1,5 +1,6 @@
+import "dotenv/config";
+
 import cors from "cors";
-import dotenv from "dotenv";
 import express from "express";
 import body from "body-parser";
 import { basename } from "path";
@@ -10,7 +11,6 @@ import InfoRoute from "../routes/info";
 import ProxyRoute from "../routes/proxy";
 import StorageRoute from "../routes/storage";
 
-dotenv.config();
 const app = express();
 const __root = __dirname.replace(basename(__dirname), "");
 
