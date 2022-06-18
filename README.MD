@@ -13,7 +13,7 @@ As of today, Dynamo is only available for Ubuntu-based machines.
 
 - **1GB Ram**
 - **1 CPU**
-- **30GB**
+- **30GB Storage**
 
 ## Installation
 
@@ -31,7 +31,7 @@ docker-compose up -d
 
 ### Shell
 
-Here is a one-liner to install Dynamo. Make sure nothing is running on ports `7000` and `80`, also kill all running instances of NGinx.
+Here is a one-liner to install Dynamo. Make sure nothing is running on ports `7000` , `8080`, `80`.
 
 - [Documentation](./docs/UbuntuShell.MD)
 
