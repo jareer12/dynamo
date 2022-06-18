@@ -72,5 +72,20 @@ class Master {
       );
     });
   }
+  async getReverseProxies(limit: number = 50) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM reverse_proxies LIMIT ?`,
+        [limit],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
 }
 export default new Master();
