@@ -1,16 +1,9 @@
 <script>
 import Box from "./DashboardBox.vue";
 export default {
-  data() {
-    return {
-      isServerWorking: false,
-    };
-  },
-  components: { Box },
-  name: "Main",
-  mounted() {
-    try {
-      setInterval(() => {
+  methods: {
+    checkBackend() {
+      try {
         fetch(import.meta.env.VITE_SERVER)
           .then((res) => res.json())
           .then((data) => {
@@ -21,10 +14,23 @@ export default {
           .catch((err) => {
             this.isServerWorking = false;
           });
-      }, 2500);
-    } catch {
-      this.isServerWorking = false;
-    }
+      } catch {
+        this.isServerWorking = false;
+      }
+    },
+  },
+  data() {
+    return {
+      isServerWorking: false,
+    };
+  },
+  components: { Box },
+  name: "Main",
+  mounted() {
+    this.checkBackend();
+    setInterval(() => {
+      this.checkBackend();
+    }, 5 * 1024);
   },
 };
 </script>

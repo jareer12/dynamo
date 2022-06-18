@@ -1,4 +1,5 @@
 import { Response } from "./Types";
+import "../plugins/proxy";
 
 import fs from "fs";
 import ejs from "ejs";

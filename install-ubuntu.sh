@@ -2,8 +2,6 @@ clear
 
 apt update
 
-apt install nginx
-
 npm install forever -g
 
 cd /root
@@ -49,42 +47,44 @@ echo "PUBLIC_PORT=7000" > .env
 
 forever start ./src/Index.js
 
-rm /etc/nginx/sites-enabled/default.save
+# apt install nginx
 
-NGINX_CONF=/etc/nginx/sites-enabled/default
+# rm /etc/nginx/sites-enabled/default.save
 
-rm $NGINX_CONF
+# NGINX_CONF=/etc/nginx/sites-enabled/default
 
-touch $NGINX_CONF
+# rm $NGINX_CONF
 
-content='
-server {
-    listen 80;
-    server_name api.jubot.site;
+# touch $NGINX_CONF
 
-    location / {
-        proxy_pass http://127.0.0.1:7000;
-    }
-}
+# content='
+# server {
+#     listen 80;
+#     server_name api.jubot.site;
 
-server {
-    listen      80;
-    server_name dynamo.jubot.site;
+#     location / {
+#         proxy_pass http://127.0.0.1:7000;
+#     }
+# }
 
-    root     /var/www/dynamo;
-    index   index.html index.htm;
+# server {
+#     listen      80;
+#     server_name dynamo.jubot.site;
 
-    location / {
-        root /var/www/dynamo;
-        try_files $uri /index.html;
-    }
+#     root     /var/www/dynamo;
+#     index   index.html index.htm;
+
+#     location / {
+#         root /var/www/dynamo;
+#         try_files $uri /index.html;
+#     }
         
-    error_log  /var/log/nginx/vue-app-error.log;
-    access_log /var/log/nginx/vue-app-access.log;
-}
-'
-echo $content >  $NGINX_CONF
+#     error_log  /var/log/nginx/vue-app-error.log;
+#     access_log /var/log/nginx/vue-app-access.log;
+# }
+# '
+# echo $content >  $NGINX_CONF
 
-killall nginx
+# killall nginx
 
-nginx
+# nginx

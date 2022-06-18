@@ -1,9 +1,13 @@
 # Dynamo
 
+You are most likely tired of large corporates selling your data or charging you a lot of money for small cloud services? This is where Dynamo comes in, what is Dynamo? It's a self-hosted cloud platform application.
+
+As of today, Dynamo is only available for Ubuntu-based machines.
+
 ## Table of Contents
 
-- [Shell Install](#Installation)
-- [Docker Install](#Installation)
+- [Shell Install](#Docker)
+- [Docker Install](#Shell)
 
 ## Requirements(Minimum)
 
