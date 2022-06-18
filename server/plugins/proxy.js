@@ -14,8 +14,10 @@ if (OS.toLowerCase() === "linux") {
         let Config = ``;
         const Proxies = [
             {
+                port: "80",
                 host: "dynamo.jubot.site",
-                target: "http",
+                target: "http://127.0.0.1",
+                targetPort: "8080",
             },
         ];
         Proxies.forEach((proxy) => {
