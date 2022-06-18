@@ -8,12 +8,17 @@ const path_1 = require("path");
 const mysql2_1 = __importDefault(require("mysql2"));
 const fs_1 = __importDefault(require("fs"));
 const __root = __dirname.replace((0, path_1.basename)(__dirname), "");
-const conn = mysql2_1.default.createConnection({
-    host: "localhost",
-    database: "test",
-    password: "",
-    user: "root",
-});
+try {
+    var conn = mysql2_1.default.createConnection({
+        host: "localhost",
+        database: "test",
+        password: "",
+        user: "root",
+    });
+}
+catch {
+    console.log(`Unable to connect to mysql, re-check Mysql config and make sure it's installed`);
+}
 class Master {
     constructor() {
         const dbs = `${__root}/sql`;

@@ -4,12 +4,18 @@ import mysql from "mysql2";
 import fs from "fs";
 
 const __root = __dirname.replace(basename(__dirname), "");
-const conn: any = mysql.createConnection({
-  host: "localhost",
-  database: "test",
-  password: "",
-  user: "root",
-});
+try {
+  var conn: any = mysql.createConnection({
+    host: "localhost",
+    database: "test",
+    password: "",
+    user: "root",
+  });
+} catch {
+  console.log(
+    `Unable to connect to mysql, re-check Mysql config and make sure it's installed`
+  );
+}
 
 class Master {
   constructor() {

@@ -1,5 +1,6 @@
-import { fsyncSync, readFileSync, writeFileSync } from "fs";
 import DB from "../plugins/sql";
+import { spawn } from "child_process";
+import { readFileSync, writeFileSync } from "fs";
 
 const OS: string = process.platform;
 if (OS.toLowerCase() === "linux") {
@@ -12,9 +13,9 @@ if (OS.toLowerCase() === "linux") {
     const Proxies: object[] = [
       {
         port: "80",
-        host: "dynamo.jubot.site",
+        host: "api.jubot.site",
         target: "http://127.0.0.1",
-        targetPort: "8080",
+        targetPort: "7000",
       },
     ];
 
@@ -35,13 +36,16 @@ server {
     } catch (err) {
       console.log(err);
     }
-    DB.getReverseProxies(50)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      DB.getReverseProxies(50)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch {}
+    spawn("nginx");
   } catch (err) {
     console.log(err);
   }
