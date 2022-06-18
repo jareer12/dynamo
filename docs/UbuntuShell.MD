@@ -23,7 +23,9 @@ server {
         proxy_pass http://127.0.0.1:7000;
     }
 }
+```
 
+```nginx
 server {
     listen      80;
     server_name example.com; ## Frontend Domain
