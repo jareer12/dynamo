@@ -1,7 +1,10 @@
 import randStr from "../plugins/randstr";
+import { basename } from "path";
 import mysql from "mysql2";
+import fs from "fs";
 
-let conn: any = mysql.createConnection({
+const __root = __dirname.replace(basename(__dirname), "");
+const conn: any = mysql.createConnection({
   host: "localhost",
   database: "test",
   password: "",
@@ -9,19 +12,65 @@ let conn: any = mysql.createConnection({
 });
 
 class Master {
-  constructor() {}
-  storageFileInfo(name: string, mime: string, destiny: string, id: string) {
-    conn.query(
-      `INSERT INTO cdn_files(id, name, created, destiny, extension) VALUES(?, ?, ?, ?, ?)`,
-      [id, name, new Date().getTime(), destiny, mime],
-      function (err: string, data: any[]) {
-        if (err) {
-          console.log(err);
-        } else {
-          //  console.log(data);
+  constructor() {
+    const dbs = `${__root}/sql`;
+    const Databases: string[] = fs.readdirSync(dbs);
+    Databases.forEach((db) => {
+      conn.query(
+        fs.readFileSync(`${dbs}/${db}`, "utf-8"),
+        function (err: any, data: any) {
+          if (err) {
+            console.log(err);
+          }
         }
-      }
-    );
+      );
+    });
+  }
+  async storageFileInfo(name: string, mime: string, id: string, cloud: string) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `INSERT INTO cdn_files(id, name, created, extension, cloud) VALUES(?, ?, ?, ?, ?)`,
+        [id, name, new Date().getTime(), mime, cloud],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async getStorageClouds(limit: number = 50) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM storage_clouds LIMIT ?`,
+        [limit],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async createStorageCloud(name: string) {
+    return new Promise((res, rej) => {
+      const created: number = new Date().getTime();
+      conn.query(
+        `INSERT INTO storage_clouds(id, name, created) VALUES(?, ?, ?)`,
+        [randStr(8), name, created],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
   }
 }
 export default new Master();

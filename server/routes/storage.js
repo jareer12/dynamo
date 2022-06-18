@@ -20,14 +20,13 @@ Router.use("*", (0, express_fileupload_1.default)({
     limits: { fileSize: MAX_STORAGE_UPLOAD_SIZE * 1024 * 1024 },
 }));
 Router.get("/clouds", function (req, res) {
-    let Clouds = [];
-    let data = fs_1.default.readdirSync(`${__root}/clouds`);
-    data.forEach((file) => {
-        if (fs_1.default.lstatSync(`${__root}/clouds/${file}`).isDirectory()) {
-            Clouds.push(file);
-        }
+    sql_1.default.getStorageClouds(req.query.limit || 50)
+        .then((data) => {
+        res.success({ Data: data });
+    })
+        .catch((err) => {
+        res.failure({ Message: "Something went wrong" });
     });
-    res.success({ Data: Clouds });
 });
 Router.get("/:id/:cloud", function (req, res) {
     if (req.params.id) {
@@ -42,21 +41,15 @@ Router.get("/:id/:cloud", function (req, res) {
 });
 Router.post("/create_cloud", function (req, res) {
     if (req.body.name) {
-        if (fs_1.default.existsSync(`${__root}/clouds/${req.body.name}`)) {
-            res.failure({ Message: "A cloud with this name already exists" });
-        }
-        else {
-            fs_1.default.mkdir(`${__root}/clouds/${req.body.name}`, function (err) {
-                if (err) {
-                    res.failure({
-                        Message: `Something went wrong while creating a cloud ${err}`,
-                    });
-                }
-                else {
-                    res.success({ Message: "New cloud created", Data: {} });
-                }
-            });
-        }
+        sql_1.default.createStorageCloud(`${req.body.name}`)
+            .then((data) => {
+            res.success({ Data: data });
+        })
+            .catch((err) => {
+            res.failure({ Message: "Something went wrong" });
+        });
+    }
+    else {
     }
 });
 Router.get("/cloud_files", function (req, res) {
@@ -85,7 +78,7 @@ Router.post("/upload", function (req, res) {
             let File = files[file];
             let fileID = (0, randstr_1.default)(22);
             File.mv(`${__root}/clouds/${req.body.cloudName}/${fileID}`);
-            sql_1.default.storageFileInfo(File.name, File.mimetype, `/clouds/${req.body.cloudName}`, fileID);
+            sql_1.default.storageFileInfo(File.name, File.mimetype, fileID, req.body.cloudName);
             final.push({
                 id: fileID,
                 pathname: `${req.protocol}://${req.hostname}:${req.app.settings.port || process.env.PORT}/storage/${fileID}`,

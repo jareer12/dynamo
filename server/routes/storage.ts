@@ -25,14 +25,13 @@ Router.use(
 );
 
 Router.get("/clouds", function (req: any, res: any) {
-  let Clouds: string[] = [];
-  let data = fs.readdirSync(`${__root}/clouds`);
-  data.forEach((file) => {
-    if (fs.lstatSync(`${__root}/clouds/${file}`).isDirectory()) {
-      Clouds.push(file);
-    }
-  });
-  res.success({ Data: Clouds });
+  DB.getStorageClouds(req.query.limit || 50)
+    .then((data) => {
+      res.success({ Data: data });
+    })
+    .catch((err) => {
+      res.failure({ Message: "Something went wrong" });
+    });
 });
 
 Router.get("/:id/:cloud", function (req: any, res: any) {
@@ -48,19 +47,14 @@ Router.get("/:id/:cloud", function (req: any, res: any) {
 
 Router.post("/create_cloud", function (req: any, res: any) {
   if (req.body.name) {
-    if (fs.existsSync(`${__root}/clouds/${req.body.name}`)) {
-      res.failure({ Message: "A cloud with this name already exists" });
-    } else {
-      fs.mkdir(`${__root}/clouds/${req.body.name}`, function (err) {
-        if (err) {
-          res.failure({
-            Message: `Something went wrong while creating a cloud ${err}`,
-          });
-        } else {
-          res.success({ Message: "New cloud created", Data: {} });
-        }
+    DB.createStorageCloud(`${req.body.name}`)
+      .then((data) => {
+        res.success({ Data: data });
+      })
+      .catch((err) => {
+        res.failure({ Message: "Something went wrong" });
       });
-    }
+  } else {
   }
 });
 
@@ -90,12 +84,7 @@ Router.post("/upload", function (req: any, res: any) {
       let File = files[file];
       let fileID = randStr(22);
       File.mv(`${__root}/clouds/${req.body.cloudName}/${fileID}`);
-      DB.storageFileInfo(
-        File.name,
-        File.mimetype,
-        `/clouds/${req.body.cloudName}`,
-        fileID
-      );
+      DB.storageFileInfo(File.name, File.mimetype, fileID, req.body.cloudName);
       final.push({
         id: fileID,
         pathname: `${req.protocol}://${req.hostname}:${

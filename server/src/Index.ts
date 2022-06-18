@@ -1,3 +1,5 @@
+import { Response } from "./Types";
+
 import fs from "fs";
 import ejs from "ejs";
 import cors from "cors";
@@ -12,7 +14,7 @@ import StorageRoute from "../routes/storage";
 
 dotenv.config();
 const app = express();
-let __root = __dirname.replace(basename(__dirname), "");
+const __root = __dirname.replace(basename(__dirname), "");
 
 app.use(cors());
 app.use(body.json());
@@ -20,19 +22,11 @@ app.set("view engine", "ejs");
 app.use(body.urlencoded({ extended: true }));
 
 app.use("*", function (req: any, res: any, next: Function) {
-  res.success = function (Data: {
-    Message: string;
-    Success?: boolean;
-    Data?: object[] | object;
-  }) {
+  res.success = function (Data: Response) {
     Data.Success = true;
     res.json(Data);
   };
-  res.failure = function (Data: {
-    Message: string;
-    Success?: boolean;
-    Data?: object[] | object;
-  }) {
+  res.failure = function (Data: Response) {
     Data.Success = false;
     res.json(Data);
   };

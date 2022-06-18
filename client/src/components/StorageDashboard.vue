@@ -29,7 +29,8 @@ export default {
       </div>
 
       <div class="text-white mt-10 px-10 grid-cols-3 grid gap-5">
-        <div
+        <a
+          :href="`/storage/${item.id}`"
           class="hover:scale-105 duration-300"
           v-for="item in clouds"
           :key="item"
@@ -44,12 +45,12 @@ export default {
             <div class="grid grid-cols-2 items-center flex-wrap">
               <div>
                 <h2 class="font-bold duration-300 group-hover:text-white">
-                  {{ item }}
+                  {{ item.name }}
                 </h2>
               </div>
               <div class="float-right">
                 <h3 class="group-hover:text-white float-right">
-                  {{ number }}/100 MB
+                  {{ new Date(item.created).toLocaleDateString() }}
                 </h3>
               </div>
               <div class="col-span-2 mt-1 bg-dark-400 flex flex-wrap">
@@ -60,7 +61,7 @@ export default {
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   </main>

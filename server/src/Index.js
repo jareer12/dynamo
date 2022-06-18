@@ -13,7 +13,7 @@ const proxy_1 = __importDefault(require("../routes/proxy"));
 const storage_1 = __importDefault(require("../routes/storage"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-let __root = __dirname.replace((0, path_1.basename)(__dirname), "");
+const __root = __dirname.replace((0, path_1.basename)(__dirname), "");
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.set("view engine", "ejs");
