@@ -3,7 +3,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import docs from "../views/APIs.vue";
 import home from "../views/HomeView.vue";
 import storage from "../views/Storage.vue";
-import explorer from "../views/Explorer.vue";
 import proxy from "../views/ReverseProxy.vue";
 import databases from "../views/Databases.vue";
 
@@ -15,10 +14,6 @@ const router = createRouter({
     {
       path: "/",
       component: home,
-    },
-    {
-      path: "/explorer",
-      component: explorer,
     },
     {
       path: "/proxy",

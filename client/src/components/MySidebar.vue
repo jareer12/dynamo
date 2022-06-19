@@ -23,12 +23,6 @@ export default {
           class="py-1 space-y-1 flex flex-wrap justify-center border-b border-bray-400"
         >
           <Nav
-            name="Explorer"
-            path="/explorer"
-            icon="fa-solid fa-folder-open"
-            theme="brew"
-          ></Nav>
-          <Nav
             name="Proxy"
             path="/proxy"
             icon="fa-solid fa-ghost"
