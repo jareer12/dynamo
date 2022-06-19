@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "npx ts-node ./src/Index.ts",
     "start": "node ./src/Index.js",
-    "tsc": "npx tsc --watch"
+    "tsc": "npx tsc --watch",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",

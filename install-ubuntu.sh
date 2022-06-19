@@ -1,90 +1,64 @@
+## Initializing Stage
 clear
-
 apt update
-
 npm install forever -g
-
 cd /root
-
 rm -r Dynamo
-
 rm -r dynamo
-
 rm -r /root/dynamo
-
 rm -r /var/www/dynamofront
 
+## Install Stage
 git clone https://github.com/jareer12/dynamo.git Dynamo
-
 mkdir /var/www/dynamofront
-
 mkdir /root/dynamo
-
 mv /root/Dynamo/client/* /var/www/dynamofront
-
 mv /root/Dynamo/server/* /root/dynamo
 
-
+## Install Frontend
 cd /var/www/dynamofront
-
 npm install
-
 npm run build
-
 cd ..
-
 mv ./dynamofront/dist ./dynamo
-
 rm -r dynamofront
-
 cd /root
 
+## Setup Backend
 cd ./dynamo
-
 npm install
-
-echo "PUBLIC_PORT=7000" > .env
-
+npm install ts-node -D
+npm run build
 forever start ./src/Index.js
 
-# apt install nginx
+## Setup Frontend(Proxy)
+apt install nginx
+rm /etc/nginx/sites-enabled/default.save
+NGINX_CONF=/etc/nginx/sites-enabled/default
+rm $NGINX_CONF
+touch $NGINX_CONF
+content='
 
-# rm /etc/nginx/sites-enabled/default.save
+server {
+    listen      8080;
 
-# NGINX_CONF=/etc/nginx/sites-enabled/default
+    root     /var/www/dynamo;
+    index   index.html index.htm;
 
-# rm $NGINX_CONF
-
-# touch $NGINX_CONF
-
-# content='
-# server {
-#     listen 80;
-#     server_name api.jubot.site;
-
-#     location / {
-#         proxy_pass http://127.0.0.1:7000;
-#     }
-# }
-
-# server {
-#     listen      80;
-#     server_name dynamo.jubot.site;
-
-#     root     /var/www/dynamo;
-#     index   index.html index.htm;
-
-#     location / {
-#         root /var/www/dynamo;
-#         try_files $uri /index.html;
-#     }
+    location / {
+        root /var/www/dynamo;
+        try_files $uri /index.html;
+    }
         
-#     error_log  /var/log/nginx/vue-app-error.log;
-#     access_log /var/log/nginx/vue-app-access.log;
-# }
-# '
-# echo $content >  $NGINX_CONF
+    error_log  /var/log/nginx/dynamo-err.log;
+    access_log /var/log/nginx/dynamo-access.log;
+}
 
-# killall nginx
+'
+echo $content >  $NGINX_CONF
+killall nginx
+nginx
 
-# nginx
+## Finish
+cd ..
+rm -r Dynamo

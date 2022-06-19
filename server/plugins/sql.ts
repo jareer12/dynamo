@@ -4,6 +4,11 @@ import mysql from "mysql2";
 import fs from "fs";
 
 const __root = __dirname.replace(basename(__dirname), "");
+conn = {
+  query() {
+    console.log(``);
+  },
+};
 try {
   if (process.env.SQL_USER && process.env.SQL_HOST) {
     var conn: any = mysql.createConnection({

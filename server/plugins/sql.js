@@ -8,6 +8,11 @@ const path_1 = require("path");
 const mysql2_1 = __importDefault(require("mysql2"));
 const fs_1 = __importDefault(require("fs"));
 const __root = __dirname.replace((0, path_1.basename)(__dirname), "");
+conn = {
+    query() {
+        console.log(``);
+    },
+};
 try {
     if (process.env.SQL_USER && process.env.SQL_HOST) {
         var conn = mysql2_1.default.createConnection({
