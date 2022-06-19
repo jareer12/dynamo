@@ -6,7 +6,7 @@ import fs from "fs";
 const __root = __dirname.replace(basename(__dirname), "");
 conn = {
   query() {
-    console.log(``);
+    console.log(`MySQL has not connected yet`);
   },
 };
 try {
@@ -14,7 +14,7 @@ try {
     var conn: any = mysql.createConnection({
       port: parseFloat(process.env.SQL_PORT),
       database: process.env.SQL_DATABASE,
-      password: process.env.SQL_PASS,
+      password: process.env.SQL_PASS || ``,
       host: process.env.SQL_HOST,
       user: process.env.SQL_USER,
     });
@@ -98,6 +98,21 @@ class Master {
             rej(err);
           } else {
             res(data);
+          }
+        }
+      );
+    });
+  }
+  async getReverseProxyById(id: string) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM reverse_proxies WHERE id = ?`,
+        [id],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data[0]);
           }
         }
       );

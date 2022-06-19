@@ -1,6 +1,7 @@
 <script>
 export default {
   props: {
+    id: String,
     name: String,
     url: String,
     active: Boolean,
@@ -10,7 +11,11 @@ export default {
 
 <template>
   <span class="relative inline-flex" data-aos="zoom-in">
-    <a type="button" :class="`bg-dark-300  p-3 text-gray-300 w-full rounded`">
+    <a
+      type="button"
+      :href="`/proxy/${id}`"
+      :class="`bg-dark-300  p-3 text-gray-300 w-full rounded`"
+    >
       <h1 class="text-lg font-bold">{{ name }}</h1>
       <h3 class="text-gray-400">{{ url }}</h3>
     </a>

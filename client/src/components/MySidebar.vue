@@ -37,7 +37,7 @@ export default {
         </div>
       </div>
 
-      <div class="space-y-1 px-1">
+      <div class="space-y-1">
         <div
           class="py-1 space-y-1 flex flex-wrap justify-center border-b border-bray-400"
         >
@@ -62,7 +62,7 @@ export default {
         </div>
       </div>
 
-      <div class="space-y-1 px-1">
+      <div class="space-y-1">
         <div class="py-1 flex flex-wrap justify-center space-y-1">
           <Nav
             name="Settings"

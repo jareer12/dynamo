@@ -44,7 +44,9 @@ export default {
           >
             <div class="grid grid-cols-2 items-center flex-wrap">
               <div>
-                <h2 class="font-bold duration-300 group-hover:text-white">
+                <h2
+                  class="capitalize font-bold duration-300 group-hover:text-white"
+                >
                   {{ item.name }}
                 </h2>
               </div>
@@ -52,12 +54,6 @@ export default {
                 <h3 class="group-hover:text-white float-right">
                   {{ new Date(item.created).toLocaleDateString() }}
                 </h3>
-              </div>
-              <div class="col-span-2 mt-1 bg-dark-400 flex flex-wrap">
-                <div
-                  class="bg-royal-500 py-3 rounded"
-                  :style="`width: ${number}%`"
-                ></div>
               </div>
             </div>
           </div>

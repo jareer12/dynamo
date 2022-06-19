@@ -40,11 +40,12 @@ export default {
       <div class="px-5 mt-10">
         <div class="grid-cols-4 grid gap-5">
           <Proxy
-            :name="proxy.name"
-            :url="`http://${proxy.target}:${proxy.port}`"
             v-for="proxy in datas"
-            :key="proxy"
+            :url="`http://${proxy.target}:${proxy.port}`"
+            :name="proxy.name"
             :active="true"
+            :id="proxy.id"
+            :key="proxy"
           />
           <div class="flex-wrap flex col-span-4" data-aos="fade-down">
             <a

@@ -74,7 +74,12 @@ export default {
     <section class="h-screen p-5 w-full bg-dark-400">
       <div data-aos="fade-down">
         <h1 class="text-3xl font-black text-gray-400">Dashboard</h1>
-        <h4 class="font-bold">v1.0.0</h4>
+        <a
+          href="https://github.com/jareer12/dynamo"
+          target="_blank"
+          class="font-bold"
+          >v1.0.0</a
+        >
       </div>
 
       <div class="text-white mt-10 px-10" data-aos="fade-down">
@@ -94,20 +99,15 @@ export default {
               Uptime(server.Uptime * 1000).seconds
             }`"
           />
-          <Box name="Reverse Proxies" amount="10" />
-          <Box name="Service Instances" amount="10" />
-          <Box name="More Info" amount="10" />
-          <Box name="Databases" class="col-span-2" amount="10" />
-        </div>
-        <div
-          :class="`p-4 ${
-            isServerWorking ? `bg-green-500` : `bg-red-500`
-          } rounded w-full mt-3`"
-        >
-          <div class="text-lg font-bold text-white">
-            <h2>
-              Backend Server Status - {{ isServerWorking ? "Okay" : "Dead" }}
-            </h2>
+          <div
+            :class="`p-4 col-span-2 ${
+              isServerWorking ? `bg-green-500` : `bg-red-500`
+            } rounded w-full`"
+          >
+            <div class="font-bold text-white">
+              <h2 class="">Server Status</h2>
+              <p>{{ isServerWorking ? "200 - Okay" : "500 - Dead" }}</p>
+            </div>
           </div>
         </div>
       </div>

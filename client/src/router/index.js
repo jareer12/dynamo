@@ -7,6 +7,7 @@ import proxy from "../views/ReverseProxy.vue";
 import databases from "../views/Databases.vue";
 
 import proxynew from "../views/NewProxy.vue";
+import proxyconfig from "../views/ConfigProxy.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,10 @@ const router = createRouter({
     {
       path: "/proxy/new",
       component: proxynew,
+    },
+    {
+      path: "/proxy/:id",
+      component: proxyconfig,
     },
   ],
 });

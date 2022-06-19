@@ -12,9 +12,9 @@ Router.get("/", function (req: any, res: any) {
       Uptime: os.uptime(),
       CPU: os.cpus(),
       Memory: {
-        used: heap,
+        used: heapTotal - heap,
         total: heapTotal,
-        free: heapTotal - heap,
+        free: heap,
         precent: {
           used: percentUsed,
           left: 100 - percentUsed,

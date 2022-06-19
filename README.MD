@@ -11,9 +11,9 @@ As of today, Dynamo is only available for Ubuntu-based machines.
 
 ## Requirements(Minimum)
 
-- **1GB Ram**
-- **1 CPU**
-- **30GB Storage**
+- **2 CPUs**
+- **2GB Ram**
+- **25GB Storage**
 
 ## Installation
 

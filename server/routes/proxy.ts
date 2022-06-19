@@ -16,6 +16,16 @@ Router.get("/all", function (req: any, res: any) {
     });
 });
 
+Router.get("/get", function (req: any, res: any) {
+  DB.getReverseProxyById(req.query.id)
+    .then((data) => {
+      res.success({ Data: data });
+    })
+    .catch((err) => {
+      res.failure({ Message: "something went wrong" });
+    });
+});
+
 Router.post("/create", function (req: any, res: any) {
   if (req.body.name) {
     if (req.body.target) {
