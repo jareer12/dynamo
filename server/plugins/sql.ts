@@ -103,5 +103,34 @@ class Master {
       );
     });
   }
+  async createReverseProxy(
+    name: string,
+    target: string,
+    targetPort: number,
+    host: string,
+    port: number
+  ) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `INSERT INTO reverse_proxies(id, name, target, targetPort, host, port, created) VALUES(?, ?, ?, ?, ?, ?, ?)`,
+        [
+          randStr(11),
+          name,
+          target,
+          targetPort,
+          host,
+          port,
+          new Date().getTime(),
+        ],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
 }
 export default new Master();

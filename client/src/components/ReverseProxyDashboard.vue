@@ -3,8 +3,28 @@ import Proxy from "./ProxyElement.vue";
 
 export default {
   components: { Proxy },
+  methods: {
+    loadProxies() {
+      try {
+        fetch(`${import.meta.env.VITE_SERVER}/proxy/all`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.Success === true) {
+              this.datas = data.Data;
+            }
+          })
+          .catch((err) => {});
+      } catch {}
+    },
+  },
   data() {
-    return {};
+    return {
+      datas: [],
+    };
+  },
+  mounted() {
+    this.loadProxies();
   },
   name: "Main",
 };
@@ -19,20 +39,21 @@ export default {
 
       <div class="px-5 mt-10">
         <div class="grid-cols-4 grid gap-5">
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="false" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="false" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="false" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="false" />
-          <Proxy name="Master" url="https://localhost:3000" :active="false" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
-          <Proxy name="Master" url="https://localhost:3000" :active="true" />
+          <Proxy
+            :name="proxy.name"
+            :url="`http://${proxy.target}:${proxy.port}`"
+            v-for="proxy in datas"
+            :key="proxy"
+            :active="true"
+          />
+          <div class="flex-wrap flex col-span-4" data-aos="fade-down">
+            <a
+              href="/proxy/new"
+              class="flex flex-wrap text-center py-5 hover:bg-green-500 w-full hover:text-white duration-300 rounded cursor-pointer justify-center items-center text-3xl bg-dark-300"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>

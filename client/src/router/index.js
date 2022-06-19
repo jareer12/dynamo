@@ -7,6 +7,8 @@ import explorer from "../views/Explorer.vue";
 import proxy from "../views/ReverseProxy.vue";
 import databases from "../views/Databases.vue";
 
+import proxynew from "../views/NewProxy.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,6 +35,10 @@ const router = createRouter({
     {
       path: "/storage",
       component: storage,
+    },
+    {
+      path: "/proxy/new",
+      component: proxynew,
     },
   ],
 });
