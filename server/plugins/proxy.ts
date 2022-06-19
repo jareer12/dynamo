@@ -1,5 +1,5 @@
+import shell from "shelljs";
 import DB from "../plugins/sql";
-import { spawn } from "child_process";
 import { readFileSync, writeFileSync } from "fs";
 
 const OS: string = process.platform;
@@ -11,7 +11,25 @@ if (OS.toLowerCase() === "linux") {
     console.log(NginxConf);
     DB.getReverseProxies(1000).then((Proxies: object[]) => {
       console.log(Proxies);
-      let Config: string = ``;
+      let Config: string = `
+include /*.conf;
+
+server {
+    listen  8080;
+
+    root  /var/www/dynamo;
+    index index.html index.htm;
+
+    location / {
+      root /var/www/dynamo;
+      try_files $uri /index.html;
+    }
+        
+    error_log  /var/log/nginx/dynamo-error.log;
+    access_log /var/log/nginx/dynamo-access.log;
+}
+
+`;
 
       Proxies.forEach((proxy: any) => {
         Config += `
@@ -32,10 +50,7 @@ server {
         console.log(err);
       }
 
-      const CMD = spawn(`killall nginx && nginx && cat ${NginxConfPath}`);
-      CMD.stdout.on("data", (data) => {
-        console.log(data);
-      });
+      const CMD = shell.exec(`killall nginx && nginx && cat ${NginxConfPath}`);
     });
   } catch (err) {
     console.log(err);

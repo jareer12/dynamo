@@ -1,11 +1,12 @@
 import "dotenv/config";
+import "../static/server";
+import "../plugins/proxy";
 
 import cors from "cors";
 import express from "express";
 import body from "body-parser";
 import { basename } from "path";
 
-import "../plugins/proxy";
 import { Response } from "./Types";
 import InfoRoute from "../routes/info";
 import ProxyRoute from "../routes/proxy";

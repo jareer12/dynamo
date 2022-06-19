@@ -1,32 +1,30 @@
+FRONTEND=/root/dynamo/static/dist
+
 ## Initializing Stage
-clear
-apt update
-npm install forever -g
-cd /root
+cd
 rm -r Dynamo
 rm -r dynamo
 rm -r /root/dynamo
 rm -r /var/www/dynamofront
+rm -r $FRONTEND
+mkdir $FRONTEND
+mkdir /root/dynamo
 
 ## Install Stage
 git clone https://github.com/jareer12/dynamo.git Dynamo
-mkdir /var/www/dynamofront
-mkdir /root/dynamo
-mv /root/Dynamo/client/* /var/www/dynamofront
+mv /root/Dynamo/client/* $FRONTEND
 mv /root/Dynamo/server/* /root/dynamo
 
 ## Install Frontend
-cd /var/www/dynamofront
+cd $FRONTEND
 npm install
 npm run build
-cd ..
-mv ./dynamofront/dist ./dynamo
-rm -r dynamofront
 cd /root
 
 ## Setup Backend
 cd ./dynamo
 npm install
+npm install forever -g
 npm install ts-node -D
 npm run build
 forever start ./src/Index.js

@@ -7,7 +7,7 @@ As of today, Dynamo is only available for Ubuntu-based machines.
 ## Table of Contents
 
 - [Shell Install](#Docker)
-- [Docker Install](#Shell)
+<!-- - [Docker Install](#Shell) -->
 
 ## Requirements(Minimum)
 
@@ -17,7 +17,7 @@ As of today, Dynamo is only available for Ubuntu-based machines.
 
 ## Installation
 
-### Docker
+<!-- ### Docker
 
 If you use docker you can install Dynamo using this command although its not recommended and gives you less freedom over the code.
 
@@ -27,11 +27,11 @@ If you use docker you can install Dynamo using this command although its not rec
 git clone https://github.com/jareer12/dynamo.git Dynamo
 cd Dynamo
 docker-compose up -d
-```
+``` -->
 
 ### Shell
 
-Here is a one-liner to install Dynamo. Make sure nothing is running on ports `7000` , `8080`, `80`.
+Here is a one-liner to install Dynamo.
 
 - [Documentation](./docs/UbuntuShell.MD)
 
