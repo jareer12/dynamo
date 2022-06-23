@@ -29,11 +29,17 @@ export default {
             theme="brew"
           ></Nav>
           <Nav
+            name="Storage Clouds"
+            path="/storage"
+            icon="fa-solid fa-cloud"
+            theme="royal"
+          ></Nav>
+          <!-- <Nav
             name="Docker"
             path="/docker"
             icon="fa-brands fa-docker"
             theme="brew"
-          ></Nav>
+          ></Nav> -->
         </div>
       </div>
 
@@ -51,12 +57,6 @@ export default {
             name="Applications"
             path="/applications"
             icon="fa-solid fa-list"
-            theme="royal"
-          ></Nav>
-          <Nav
-            name="Storage Clouds"
-            path="/storage"
-            icon="fa-solid fa-cloud"
             theme="royal"
           ></Nav>
           <Nav
