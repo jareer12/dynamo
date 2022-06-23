@@ -3,9 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import docs from "../views/APIs.vue";
 import home from "../views/HomeView.vue";
 import storage from "../views/Storage.vue";
+import services from "../views/Services.vue";
 import proxy from "../views/ReverseProxy.vue";
 import databases from "../views/Databases.vue";
-import services from "../views/Services.vue";
+import applications from "../views/Applications.vue";
 
 import proxynew from "../views/NewProxy.vue";
 import storagenew from "../views/NewStorage.vue";
@@ -37,6 +38,10 @@ const router = createRouter({
     {
       path: "/services",
       component: services,
+    },
+    {
+      path: "/applications",
+      component: applications,
     },
     {
       path: "/proxy/new",
