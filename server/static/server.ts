@@ -10,6 +10,8 @@ client.get("*", function (req: any, res: any) {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
 
-client.listen(8085, function () {
-  console.log(`Dashboard UI Available on http://127.0.0.1:8085`);
+client.listen(process.env.DASHBOARD_PORT, function () {
+  console.log(
+    `Dashboard UI Available on http://127.0.0.1:${process.env.DASHBOARD_PORT}`
+  );
 });
