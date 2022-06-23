@@ -37,5 +37,11 @@ tag.innerHTML = `
 }
 `;
 
+window.process = {
+  env: import.meta.env,
+};
+window.process.env.VITE_SERVER = `${window.location.protocol}//${window.location.hostname}:7000`;
+console.log(window.process.env.VITE_SERVER);
+
 document.head.appendChild(tag);
 app.mount("#app");

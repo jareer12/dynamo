@@ -59,6 +59,14 @@ export default {
           </div>
         </a>
       </div>
+      <div class="flex-wrap flex col-span-4" data-aos="fade-down">
+        <a
+          href="/storage/new"
+          class="flex flex-wrap text-center py-5 hover:bg-royal w-full hover:text-white duration-300 rounded cursor-pointer justify-center items-center text-3xl bg-dark-300"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </a>
+      </div>
     </section>
   </main>
 </template>

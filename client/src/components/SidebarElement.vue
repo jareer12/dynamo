@@ -8,9 +8,14 @@ export default {
     icon: String,
     theme: String,
   },
+  data() {
+    return {
+      id: this.name.replace(" ", "_"),
+    };
+  },
   mounted() {
-    tippy(`#${this.name}`, {
-      content: this.name,
+    tippy(`#${this.id}`, {
+      content: `${this.name}`,
       theme: this.theme,
       placement: "right",
     });
@@ -20,7 +25,7 @@ export default {
 
 <template>
   <a
-    :id="name"
+    :id="id"
     :href="`${path}`"
     :class="`hover:bg-dark-500 hover:text-${theme}-500 items-center flex duration-300 transition-all p-4 rounded cursor-pointer`"
   >

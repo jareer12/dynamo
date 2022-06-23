@@ -5,8 +5,10 @@ import home from "../views/HomeView.vue";
 import storage from "../views/Storage.vue";
 import proxy from "../views/ReverseProxy.vue";
 import databases from "../views/Databases.vue";
+import services from "../views/Services.vue";
 
 import proxynew from "../views/NewProxy.vue";
+import storagenew from "../views/NewStorage.vue";
 import proxyconfig from "../views/ConfigProxy.vue";
 
 const router = createRouter({
@@ -33,8 +35,16 @@ const router = createRouter({
       component: storage,
     },
     {
+      path: "/services",
+      component: services,
+    },
+    {
       path: "/proxy/new",
       component: proxynew,
+    },
+    {
+      path: "/storage/new",
+      component: storagenew,
     },
     {
       path: "/proxy/:id",

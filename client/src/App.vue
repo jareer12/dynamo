@@ -4,8 +4,8 @@ import MySidebar from "@/components/MySidebar.vue";
 </script>
 
 <style>
-@import "./assets/css/tailwinds.css";
 @import "./assets/css/index.css";
+@import "./assets/css/tailwinds.css";
 </style>
 
 <template>

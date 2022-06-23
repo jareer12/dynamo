@@ -6,7 +6,7 @@ export default {
   methods: {
     loadProxies() {
       try {
-        fetch(`${import.meta.env.VITE_SERVER}/proxy/all`)
+        fetch(`${window.process.env.VITE_SERVER}/proxy/all`)
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

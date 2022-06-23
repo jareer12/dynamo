@@ -48,7 +48,13 @@ export default {
             theme="royal"
           ></Nav>
           <Nav
-            name="Storage"
+            name="Applications"
+            path="/applications"
+            icon="fa-solid fa-list"
+            theme="royal"
+          ></Nav>
+          <Nav
+            name="Storage Clouds"
             path="/storage"
             icon="fa-solid fa-cloud"
             theme="royal"

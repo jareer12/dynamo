@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@vueform/slider": "^2.0.10"
+  }
+}

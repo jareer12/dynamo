@@ -103,6 +103,36 @@ class Master {
       );
     });
   }
+  async getServices(limit: number = 50) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM services LIMIT ?`,
+        [limit],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async getApplications(limit: number = 50) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM applications LIMIT ?`,
+        [limit],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
   async getReverseProxyById(id: string) {
     return new Promise((res, rej) => {
       conn.query(
