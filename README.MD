@@ -29,8 +29,6 @@ cd Dynamo
 docker-compose up -d
 ``` -->
 
-### Shell
-
 Here is a one-liner to install Dynamo.
 
 - [Documentation](./docs/UbuntuShell.MD)
