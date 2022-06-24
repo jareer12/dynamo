@@ -8,7 +8,7 @@ export default {
   },
   mounted() {
     try {
-      fetch(`${import.meta.env.VITE_SERVER}/storage/clouds`)
+      fetch(`${window.process.env.VITE_SERVER}/storage/clouds`)
         .then((res) => res.json())
         .then((data) => {
           if (data.Success === true) {

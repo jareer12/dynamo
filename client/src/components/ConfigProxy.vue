@@ -3,7 +3,7 @@ export default {
   methods: {
     load() {
       fetch(
-        `${import.meta.env.VITE_SERVER}/proxy/get?id=${this.$route.params.id}`
+        `${window.process.env.VITE_SERVER}/proxy/get?id=${this.$route.params.id}`
       )
         .then((res) => res.json())
         .then((data) => {

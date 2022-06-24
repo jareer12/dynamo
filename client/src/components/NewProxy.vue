@@ -12,7 +12,7 @@ export default {
   methods: {
     create() {
       try {
-        fetch(`${import.meta.env.VITE_SERVER}/proxy/create`, {
+        fetch(`${window.process.env.VITE_SERVER}/proxy/create`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",

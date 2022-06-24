@@ -4,7 +4,7 @@ export default {
   methods: {
     checkBackend() {
       try {
-        fetch(`${import.meta.env.VITE_SERVER}/info`)
+        fetch(`${window.process.env.VITE_SERVER}/info`)
           .then((res) => res.json())
           .then((data) => {
             if (data.Success === true) {

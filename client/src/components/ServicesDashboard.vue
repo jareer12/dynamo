@@ -1,14 +1,28 @@
 <script>
-import Prism from "prismjs";
-import "@/assets/css/prism.css";
-import Box from "./DashboardBox.vue";
-import "prismjs/components/prism-bash";
-
 export default {
-  components: { Box },
   name: "Main",
+  data() {
+    return {
+      services: [
+        {
+          name: "Master DB Dashboard",
+          slug: "phpMyAdmin",
+          version: "v5.3.6",
+        },
+      ],
+    };
+  },
   mounted() {
-    Prism.highlightAll();
+    try {
+      fetch(`${window.process.env.VITE_SERVER}/storage/clouds`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.Success === true) {
+            this.services = data.Data;
+          }
+        })
+        .catch((err) => {});
+    } catch {}
   },
 };
 </script>
@@ -21,9 +35,11 @@ export default {
       </div>
 
       <div class="grid text-gray-300 mt-5 grid-cols-1">
-        <div class="grid grid-cols-3 gap-5">
-          <div v-for="item in [1, 1, 1, 1, 1, 1, 1, 1, 1]" :key="item">
-            <div class="bg-dark-300 p-4 space-x-5 flex flex-wrap">
+        <div class="grid grid-cols-3 gap-5 p-5">
+          <div v-for="service in services" :key="service" data-aos="zoom-in">
+            <div
+              class="bg-dark-300 p-4 space-x-5 rounded group duration-300 hover:scale-105 hover:bg-royal flex flex-wrap"
+            >
               <div class="w-24 h-24 flex items-center">
                 <img
                   class="object-cover"
@@ -32,11 +48,13 @@ export default {
               </div>
               <div class="space-x-3 space-y-3">
                 <div>
-                  <h2 class="font-bold">phpMyAdmin</h2>
+                  <h2 class="font-bold group-hover:text-white">
+                    {{ service.name }}
+                  </h2>
                 </div>
-                <div>
-                  <h2 class="font-bold text-gray-400">Node.js</h2>
-                  <h4 class="text-gray-400">v16.3.1</h4>
+                <div class="font-bold text-gray-400 group-hover:text-white">
+                  <h4 class="">{{ service.slug }}</h4>
+                  <h4 class="">{{ service.version }}</h4>
                 </div>
               </div>
             </div>
