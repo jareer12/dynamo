@@ -3,7 +3,7 @@ import DB from "../plugins/sql";
 const Router = express.Router();
 
 Router.get("/all", function (req: any, res: any) {
-  DB.getServices(parseInt(req.query.limit) || 500)
+  DB.getApplications(parseInt(req.query.limit) || 500)
     .then((data: object) => {
       res.success({ Data: data });
     })
@@ -13,7 +13,7 @@ Router.get("/all", function (req: any, res: any) {
 });
 
 Router.get("/get:/id", function (req: any, res: any) {
-  DB.getServiceById(req.params.id)
+  DB.getApplicationById(req.params.id)
     .then((data: object) => {
       res.success({ Data: data });
     })
@@ -23,7 +23,13 @@ Router.get("/get:/id", function (req: any, res: any) {
 });
 
 Router.post("/create", function (req: any, res: any) {
-  DB.createService(req.body.name, req.body.slug, req.body.port)
+  DB.createApplication(
+    req.body.name,
+    req.body.service,
+    req.body.git,
+    req.body.runCommand,
+    req.body.buildCommand
+  )
     .then((data: object) => {
       res.success({ Data: data });
     })

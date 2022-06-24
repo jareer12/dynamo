@@ -11,6 +11,7 @@ import { Response } from "./Types";
 import InfoRoute from "../routes/info";
 import ProxyRoute from "../routes/proxy";
 import StorageRoute from "../routes/storage";
+import ApplicationsRoute from "../routes/applications";
 
 const app = express();
 const __root = __dirname.replace(basename(__dirname), "");
@@ -32,6 +33,7 @@ app.use("*", function (req: any, res: any, next: Function) {
   next();
 });
 
+app.use("/applications", ApplicationsRoute);
 app.use("/storage", StorageRoute);
 app.use("/proxy", ProxyRoute);
 app.use("/info", InfoRoute);

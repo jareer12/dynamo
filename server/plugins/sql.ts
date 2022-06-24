@@ -118,11 +118,56 @@ class Master {
       );
     });
   }
+  async getServiceById(id: string) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM services WHERE id = ?`,
+        [id],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async createService(name: string, slug: string, port: string) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `INSERT INTO services(id, name, slug, port, created) VALUES(?, ?, ?, ?, ?)`,
+        [randStr(11), name, slug, port, port, new Date().getTime()],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
   async getApplications(limit: number = 50) {
     return new Promise((res, rej) => {
       conn.query(
         `SELECT * FROM applications LIMIT ?`,
         [limit],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async getApplicationById(id: string) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `SELECT * FROM applications WHERE id = ?`,
+        [id],
         function (err: string, data: any[]) {
           if (err) {
             rej(err);
@@ -165,6 +210,35 @@ class Master {
           targetPort,
           host,
           port,
+          new Date().getTime(),
+        ],
+        function (err: string, data: any[]) {
+          if (err) {
+            rej(err);
+          } else {
+            res(data);
+          }
+        }
+      );
+    });
+  }
+  async createApplication(
+    name: string,
+    service: string,
+    git: string,
+    runCommand: string,
+    buildCommand: string
+  ) {
+    return new Promise((res, rej) => {
+      conn.query(
+        `INSERT INTO reverse_proxies(id, name, service, git, rum_cmd, build_cmd, created) VALUES(?, ?, ?, ?, ?, ?, ?)`,
+        [
+          randStr(14),
+          name,
+          service,
+          git,
+          runCommand,
+          buildCommand,
           new Date().getTime(),
         ],
         function (err: string, data: any[]) {
