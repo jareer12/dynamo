@@ -38,7 +38,7 @@ export default {
         <div class="grid grid-cols-3 gap-5 p-5">
           <div v-for="service in services" :key="service" data-aos="zoom-in">
             <div
-              class="bg-dark-300 p-4 space-x-5 rounded group duration-300 hover:scale-105 hover:bg-royal flex flex-wrap"
+              class="bg-dark-300 p-4 space-x-5 group duration-300 hover:scale-105 hover:bg-royal flex flex-wrap"
             >
               <div class="w-24 h-24 flex items-center">
                 <img
@@ -60,6 +60,14 @@ export default {
             </div>
           </div>
         </div>
+      </div>
+      <div class="flex-wrap flex col-span-4" data-aos="fade-down">
+        <a
+          href="/services/new"
+          class="flex flex-wrap text-center py-5 hover:bg-royal w-full hover:text-white duration-300 cursor-pointer justify-center items-center text-3xl bg-dark-300"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </a>
       </div>
     </section>
   </main>

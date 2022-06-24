@@ -83,8 +83,8 @@ export default {
       </div>
 
       <div class="text-white mt-10 px-10" data-aos="fade-down">
-        <div class="grid-cols-3 gap-5 grid">
-          <Box name="CPU(MHz)" class="col-span-2" :amount="server.CPU.length" />
+        <div class="grid-cols-3 gap-6 grid">
+          <Box name="CPU(MHz)" class="c" :amount="server.CPU.length" />
           <Box
             name="Memory"
             :amount="`${parseInt(
@@ -100,9 +100,9 @@ export default {
             }`"
           />
           <div
-            :class="`p-4 col-span-2 ${
+            :class="`p-4 col-span-3 ${
               isServerWorking ? `bg-green-500` : `bg-red-500`
-            } rounded w-full`"
+            }  w-full`"
           >
             <div class="font-bold text-white">
               <h2 class="">Server Status</h2>

@@ -40,7 +40,7 @@ export default {
           </div>
           <div
             data-aos="zoom-out-right"
-            class="focus:scale-105 bg-dark-300 rounded text-gray-400 cursor-pointer group px-4 py-3 transition-all duration-300"
+            class="focus:scale-105 bg-dark-300 text-gray-400 cursor-pointer group px-4 py-3 transition-all duration-300"
           >
             <div class="grid grid-cols-2 items-center flex-wrap">
               <div>
@@ -62,7 +62,7 @@ export default {
       <div class="flex-wrap flex col-span-4" data-aos="fade-down">
         <a
           href="/storage/new"
-          class="flex flex-wrap text-center py-5 hover:bg-royal w-full hover:text-white duration-300 rounded cursor-pointer justify-center items-center text-3xl bg-dark-300"
+          class="flex flex-wrap text-center py-5 hover:bg-royal w-full hover:text-white duration-300 cursor-pointer justify-center items-center text-3xl bg-dark-300"
         >
           <i class="fa-solid fa-plus"></i>
         </a>

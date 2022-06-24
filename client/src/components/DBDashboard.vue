@@ -18,7 +18,7 @@ export default {
             2, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1,
           ]"
           :key="item"
-          class="bg-dark-300 group hover:scale-105 duration-300 hover:bg-royal cursor-pointer p-3 rounded grid grid-cols-2 space-x-3"
+          class="bg-dark-300 group hover:scale-105 duration-300 hover:bg-royal cursor-pointer p-3 grid grid-cols-2 space-x-3"
         >
           <div>
             <h2 class="font-bold group-hover:text-white">My Database</h2>

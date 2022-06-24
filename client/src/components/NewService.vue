@@ -43,7 +43,7 @@ export default {
   <main class="w-auto" data-aos="fade-in">
     <section class="h-screen p-5 w-full bg-dark-400">
       <div data-aos="fade-down">
-        <h1 class="text-3xl font-black text-gray-400">Create Reverse Proxy</h1>
+        <h1 class="text-3xl font-black text-gray-400">Create New Storage</h1>
       </div>
 
       <div class="grid text-gray-300 mt-5 grid-cols-1">
@@ -52,57 +52,39 @@ export default {
             <div>Name</div>
             <input
               v-model="Name"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
-              placeholder="my_reverse_proxy"
-              type="text"
-            />
-          </div>
-          <div>
-            <div>Target</div>
-            <input
-              v-model="Target"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
-              placeholder="sub.example.com"
-              type="text"
-            />
-          </div>
-          <div>
-            <div>Target Port</div>
-            <input
-              v-model="TargetPort"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
-              placeholder="2345"
-              type="number"
-            />
-          </div>
-          <div>
-            <div>Host</div>
-            <input
-              v-model="Host"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
-              placeholder="127.0.0.1"
+              class="float-right bg-dark-300 p-3 border-dashed border-royal-500 w-full border-2"
+              placeholder="MySQL Dashboard"
               type="text"
             />
           </div>
           <div>
             <div>Port</div>
             <input
-              v-model="Port"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
-              placeholder="80"
-              type="text"
+              v-model="Name"
+              class="float-right bg-dark-300 p-3 border-dashed border-royal-500 w-full border-2"
+              placeholder="28654"
+              type="number"
             />
           </div>
+          <div>
+            <div>Select Service</div>
+            <select
+              class="w-full bg-dark-300 p-3 border-dashed border-2 border-royal-500"
+            >
+              <option value="">phpMyAdmin</option>
+            </select>
+          </div>
+
           <div class="col-span-2 flex space-x-3">
             <button
               @click="create()"
-              class="duration-300 bg-green-500 hover:bg-green-500 hover:shadow-green-500/50 shadow-md space-x-1 items-center flex px-12 py-3 text-white"
+              class="duration-300 bg-royal-500 hover:bg-royal-500 hover:shadow-royal-500/50 shadow-md space-x-1 items-center flex px-12 py-3 text-white"
             >
               <span>Done</span>
             </button>
             <a
               href="/proxy"
-              class="duration-300 bg-dark-300 hover:bg-green-500 hover:shadow-green-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
+              class="duration-300 bg-dark-300 hover:bg-royal-500 hover:shadow-royal-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
             >
               <span>No, Thanks</span>
             </a>

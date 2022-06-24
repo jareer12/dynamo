@@ -10,6 +10,7 @@ import applications from "../views/Applications.vue";
 
 import proxynew from "../views/NewProxy.vue";
 import storagenew from "../views/NewStorage.vue";
+import servicesnew from "../views/NewService.vue";
 import proxyconfig from "../views/ConfigProxy.vue";
 
 const router = createRouter({
@@ -50,6 +51,10 @@ const router = createRouter({
     {
       path: "/storage/new",
       component: storagenew,
+    },
+    {
+      path: "/services/new",
+      component: servicesnew,
     },
     {
       path: "/proxy/:id",

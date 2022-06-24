@@ -19,6 +19,7 @@ app.use(ContextMenu);
 app.use(ContextMenuItem);
 
 localStorage.setItem("color", "brew");
+
 const colors = {
   brew: "347AEB",
   valencia: "D44A4A",
