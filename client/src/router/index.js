@@ -5,6 +5,7 @@ import home from "../views/HomeView.vue";
 import storage from "../views/Storage.vue";
 import services from "../views/Services.vue";
 import proxy from "../views/ReverseProxy.vue";
+import settings from "../views/Settings.vue";
 import databases from "../views/Databases.vue";
 import applications from "../views/Applications.vue";
 
@@ -12,6 +13,7 @@ import proxynew from "../views/NewProxy.vue";
 import storagenew from "../views/NewStorage.vue";
 import servicesnew from "../views/NewService.vue";
 import proxyconfig from "../views/ConfigProxy.vue";
+import applicationnew from "../views/NewApplication.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +33,10 @@ const router = createRouter({
     {
       path: "/databases",
       component: databases,
+    },
+    {
+      path: "/settings",
+      component: settings,
     },
     {
       path: "/storage",
@@ -55,6 +61,10 @@ const router = createRouter({
     {
       path: "/services/new",
       component: servicesnew,
+    },
+    {
+      path: "/applications/new",
+      component: applicationnew,
     },
     {
       path: "/proxy/:id",
