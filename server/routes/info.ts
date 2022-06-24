@@ -10,7 +10,10 @@ Router.get("/", function (req: any, res: any) {
     Message: "Information",
     Data: {
       Uptime: os.uptime(),
-      CPU: os.cpus(),
+      CPU: {
+        info: os.loadavg(),
+        list: os.cpus(),
+      },
       Memory: {
         used: heapTotal - heap,
         total: heapTotal,

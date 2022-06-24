@@ -38,7 +38,7 @@ export default {
             <div>Name</div>
             <input
               v-model="data.name"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="my_reverse_proxy"
               type="text"
             />
@@ -47,7 +47,7 @@ export default {
             <div>Target</div>
             <input
               v-model="data.target"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="sub.example.com"
               type="text"
             />
@@ -56,7 +56,7 @@ export default {
             <div>Target Port</div>
             <input
               v-model="data.targetPort"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="2345"
               type="number"
             />
@@ -65,7 +65,7 @@ export default {
             <div>Host</div>
             <input
               v-model="data.host"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="127.0.0.1"
               type="text"
             />
@@ -74,7 +74,7 @@ export default {
             <div>Port</div>
             <input
               v-model="data.port"
-              class="float-right bg-dark-300 p-3 border-dashed border-green-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="80"
               type="text"
             />
@@ -82,13 +82,13 @@ export default {
           <div class="col-span-2 flex space-x-3">
             <button
               @click="update()"
-              class="duration-300 bg-green-500 hover:bg-green-500 hover:shadow-green-500/50 hover:shadow-md space-x-1 items-center flex px-12 py-3 text-white"
+              class="duration-300 bg-brew-500 hover:bg-brew-500 hover:shadow-brew-500/50 hover:shadow-md space-x-1 items-center flex px-12 py-3 text-white"
             >
               <span>Save</span>
             </button>
             <a
               href="/proxy"
-              class="duration-300 bg-dark-300 hover:bg-green-500 hover:shadow-green-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
+              class="duration-300 bg-dark-300 hover:bg-brew-500 hover:shadow-brew-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
             >
               <span>No, Thanks</span>
             </a>

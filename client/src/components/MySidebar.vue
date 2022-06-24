@@ -10,14 +10,14 @@ export default {
 <template>
   <main class="flex-wrap w-auto flex">
     <div class="h-full w-auto border-r border-bray-400">
-      <section class="h-screen px-1 bg-dark-400 text-gray-400">
+      <section class="h-screen px-1 bg-dark-400 text-bray-200">
         <div class="">
           <div class="py-1 space-y-1 border-b border-bray-400">
             <Nav
               name="Home"
               path="/"
               icon="fa-solid fa-house"
-              theme="brew"
+              theme="emerald"
             ></Nav>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default {
               name="Storage Clouds"
               path="/storage"
               icon="fa-solid fa-cloud"
-              theme="royal"
+              theme="brew"
             ></Nav>
             <!-- <Nav
             name="Docker"

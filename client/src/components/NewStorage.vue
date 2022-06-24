@@ -52,7 +52,7 @@ export default {
             <div>Name</div>
             <input
               v-model="Name"
-              class="float-right bg-dark-300 p-3 border-dashed border-royal-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               placeholder="my_storage_cloud"
               type="text"
             />
@@ -61,26 +61,26 @@ export default {
             <div>Allocate Size(MBs)</div>
             <input
               v-model="Storage"
-              class="float-right bg-dark-300 p-3 border-dashed border-royal-500 w-full border-2"
+              class="float-right bg-dark-300 p-3 border-dashed border-brew-500 w-full border-2"
               :placeholder="`${1024 * 50}`"
               type="text"
             />
           </div>
 
           <div class="bg-dark-300 w-full col-span-2">
-            <div class="bg-royal p-4" style="width: 45%"></div>
+            <div class="bg-brew p-4" style="width: 45%"></div>
           </div>
 
           <div class="col-span-2 flex space-x-3">
             <button
               @click="create()"
-              class="duration-300 bg-royal-500 hover:bg-royal-500 hover:shadow-royal-500/50 shadow-md space-x-1 items-center flex px-12 py-3 text-white"
+              class="duration-300 bg-brew-500 hover:bg-brew-500 hover:shadow-brew-500/50 shadow-md space-x-1 items-center flex px-12 py-3 text-white"
             >
               <span>Done</span>
             </button>
             <a
               href="/proxy"
-              class="duration-300 bg-dark-300 hover:bg-royal-500 hover:shadow-royal-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
+              class="duration-300 bg-dark-300 hover:bg-brew-500 hover:shadow-brew-500/50 shadow-md space-x-1 items-center px-12 py-3 text-white"
             >
               <span>No, Thanks</span>
             </a>

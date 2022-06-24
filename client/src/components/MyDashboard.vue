@@ -53,7 +53,9 @@ export default {
       server: {
         Uptime: 1,
         Memory: {},
-        CPU: [],
+        CPU: {
+          list: [],
+        },
       },
       isServerWorking: false,
     };
@@ -84,7 +86,11 @@ export default {
 
       <div class="text-white mt-10 px-10" data-aos="fade-down">
         <div class="grid-cols-3 gap-6 grid">
-          <Box name="CPU(MHz)" class="c" :amount="server.CPU.length" />
+          <Box
+            name="CPUs"
+            class="c"
+            :amount="`${server.CPU.list.length} Cores`"
+          />
           <Box
             name="Memory"
             :amount="`${parseInt(

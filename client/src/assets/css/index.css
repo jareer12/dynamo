@@ -86,3 +86,24 @@ body {
   > .tippy-arrow::before {
   border-right-color: #a14ad4;
 }
+
+.tippy-box[data-theme~="emerald"] {
+  background-color: #4ad45a;
+  color: #fff;
+}
+.tippy-box[data-theme~="emerald"][data-placement^="top"]
+  > .tippy-arrow::before {
+  border-top-color: #4ad45a;
+}
+.tippy-box[data-theme~="emerald"][data-placement^="bottom"]
+  > .tippy-arrow::before {
+  border-bottom-color: #4ad45a;
+}
+.tippy-box[data-theme~="emerald"][data-placement^="left"]
+  > .tippy-arrow::before {
+  border-left-color: #4ad45a;
+}
+.tippy-box[data-theme~="emerald"][data-placement^="right"]
+  > .tippy-arrow::before {
+  border-right-color: #4ad45a;
+}

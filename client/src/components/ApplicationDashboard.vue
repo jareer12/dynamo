@@ -21,7 +21,7 @@ export default {
       </div>
 
       <div class="grid text-gray-300 mt-5 grid-cols-1">
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-3 gap-5 p-5">
           <div v-for="item in [1, 1, 1, 1, 1, 1, 1, 1, 1]" :key="item">
             <div class="bg-dark-300 p-4 space-x-5 flex flex-wrap">
               <div class="w-24">
