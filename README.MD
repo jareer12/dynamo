@@ -1,4 +1,4 @@
-# Dynamo
+# Dynamo [IN DEV]
 
 You are most likely tired of large corporates selling your data or charging you a lot of money for small cloud services? This is where Dynamo comes in, what is Dynamo? It's a self-hosted cloud platform application.
 
