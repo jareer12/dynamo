@@ -62,7 +62,7 @@ export default {
             </div>
           </div>
         </div>
-        <div class="flex-wrap flex col-span-4" data-aos="fade-down">
+        <div class="flex-wrap flex col-span-4 mt-5" data-aos="fade-down">
           <a
             href="/services/new"
             class="flex flex-wrap text-center py-5 hover:bg-royal w-full hover:text-white duration-300 cursor-pointer justify-center items-center text-3xl bg-dark-300"

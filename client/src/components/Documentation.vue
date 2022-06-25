@@ -73,6 +73,7 @@ export default {
 
       <div class="grid text-white mt-5 grid-cols-2 gap-5">
         <Document
+          data-aos="zoom-in"
           :url="item.url"
           :response="item.res"
           :method="item.method"

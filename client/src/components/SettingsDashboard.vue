@@ -1,11 +1,10 @@
 <script>
-import Toggle from "@vueform/toggle";
+import Toggle from "./ToggleButton.vue";
 
 export default {
   components: {
     Toggle,
   },
-
   name: "Main",
   data() {
     return {
@@ -26,10 +25,10 @@ export default {
         <h1 class="text-3xl font-black text-gray-400">Settings</h1>
       </div>
 
-      <div class="p-5">
+      <div class="p-5" data-aos="fade-right">
         <div class="text-gray-300">
           <div class="grid grid-cols-1">
-            <div data-aos="fade-down">
+            <div>
               <h1 class="text-2xl font-black text-gray-400">Members</h1>
             </div>
             <section class="mt-5 space-y-2 font-semibold px-2">
@@ -41,7 +40,7 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" v-model="value" />
+                  <Toggle class="float-right" color="#A14AD4" :value="value" />
                 </div>
               </div>
               <div class="items-center grid-cols-2 grid">
@@ -52,7 +51,7 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" v-model="value" />
+                  <Toggle class="float-right" :value="value" />
                 </div>
               </div>
 
@@ -79,8 +78,8 @@ export default {
             </section>
           </div>
         </div>
-        <div class="grid grid-cols-1 mt-3">
-          <div data-aos="fade-down">
+        <div class="grid grid-cols-1 mt-8">
+          <div>
             <h1 class="text-2xl font-black text-gray-400">Manager</h1>
           </div>
           <section class="mt-5 space-y-2 font-semibold px-2">
@@ -88,7 +87,7 @@ export default {
               <div>
                 <h2>
                   Manage
-                  <span class="text-emerald-400">Services</span>
+                  <span class="text-amethyst-400">Services</span>
                 </h2>
               </div>
               <div>
@@ -99,7 +98,7 @@ export default {
               <div>
                 <h2>
                   Manage
-                  <span class="text-emerald-400">Reverse Proxies</span>
+                  <span class="text-amethyst-400">Reverse Proxies</span>
                 </h2>
               </div>
               <div>
@@ -109,7 +108,7 @@ export default {
 
             <div class="items-center grid-cols-2 grid">
               <div>
-                <h2>Manage <span class="text-emerald-400">Databases</span></h2>
+                <h2>Manage <span class="text-amethyst-400">Databases</span></h2>
               </div>
               <div>
                 <Toggle class="float-right" v-model="value" />
@@ -118,7 +117,55 @@ export default {
             <div class="items-center grid-cols-2 grid">
               <div>
                 <h2>
-                  Manage <span class="text-emerald-400">Applications</span>
+                  Manage <span class="text-amethyst-400">Applications</span>
+                </h2>
+              </div>
+              <div>
+                <Toggle class="float-right" v-model="value" />
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="grid grid-cols-1 mt-8">
+          <div>
+            <h1 class="text-2xl font-black text-gray-400">Administrator</h1>
+          </div>
+          <section class="mt-5 space-y-2 font-semibold px-2">
+            <div class="items-center grid-cols-2 grid">
+              <div>
+                <h2>
+                  Manage
+                  <span class="text-amethyst-400">Services</span>
+                </h2>
+              </div>
+              <div>
+                <Toggle class="float-right" v-model="value" />
+              </div>
+            </div>
+            <div class="items-center grid-cols-2 grid">
+              <div>
+                <h2>
+                  Manage
+                  <span class="text-amethyst-400">Reverse Proxies</span>
+                </h2>
+              </div>
+              <div>
+                <Toggle class="float-right" v-model="value" />
+              </div>
+            </div>
+
+            <div class="items-center grid-cols-2 grid">
+              <div>
+                <h2>Manage <span class="text-amethyst-400">Databases</span></h2>
+              </div>
+              <div>
+                <Toggle class="float-right" v-model="value" />
+              </div>
+            </div>
+            <div class="items-center grid-cols-2 grid">
+              <div>
+                <h2>
+                  Manage <span class="text-amethyst-400">Applications</span>
                 </h2>
               </div>
               <div>
@@ -131,10 +178,3 @@ export default {
     </section>
   </main>
 </template>
-<style src="@vueform/toggle/themes/default.css"></style>
-<style lang="css">
-:root {
-  --toggle-bg-on: #a14ad4;
-  --toggle-border-on: #a14ad4;
-}
-</style>
