@@ -1,20 +1,20 @@
 {
   "members": {
-    "manage_db": false,
-    "manage_apps": false,
-    "manage_proxy": false,
-    "manage_services": false
+    "manage_db": true,
+    "manage_apps": true,
+    "manage_proxy": true,
+    "manage_services": true
   },
   "manager": {
-    "manage_db": false,
-    "manage_apps": false,
-    "manage_proxy": false,
-    "manage_services": false
+    "manage_db": true,
+    "manage_apps": true,
+    "manage_proxy": true,
+    "manage_services": true
   },
   "admin": {
-    "manage_db": false,
-    "manage_apps": false,
-    "manage_proxy": false,
-    "manage_services": false
+    "manage_db": true,
+    "manage_apps": true,
+    "manage_proxy": true,
+    "manage_services": true
   }
 }

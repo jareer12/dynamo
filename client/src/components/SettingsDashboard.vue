@@ -2,18 +2,32 @@
 import Toggle from "./ToggleButton.vue";
 
 export default {
+  name: "Main",
   components: {
     Toggle,
   },
-  name: "Main",
+  methods: {
+    load() {
+      try {
+        fetch(`${window.process.env.VITE_SERVER}/settings/all`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.Success === true) {
+              this.config = data.Data;
+            }
+          })
+          .catch((err) => {});
+      } catch {}
+    },
+  },
   data() {
     return {
       value: true,
+      config: { members: {} },
     };
   },
   mounted() {
-    try {
-    } catch {}
+    this.load();
   },
 };
 </script>
@@ -40,7 +54,10 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" color="#A14AD4" :value="value" />
+                  <Toggle
+                    class="float-right"
+                    :value="config.members.manage_services"
+                  />
                 </div>
               </div>
               <div class="items-center grid-cols-2 grid">
@@ -51,7 +68,10 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" :value="value" />
+                  <Toggle
+                    class="float-right"
+                    :value="config.members.manage_proxy"
+                  />
                 </div>
               </div>
 
@@ -62,7 +82,10 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" v-model="value" />
+                  <Toggle
+                    class="float-right"
+                    :value="config.members.manage_db"
+                  />
                 </div>
               </div>
               <div class="items-center grid-cols-2 grid">
@@ -72,7 +95,10 @@ export default {
                   </h2>
                 </div>
                 <div>
-                  <Toggle class="float-right" v-model="value" />
+                  <Toggle
+                    class="float-right"
+                    :value="config.members.manage_apps"
+                  />
                 </div>
               </div>
             </section>
