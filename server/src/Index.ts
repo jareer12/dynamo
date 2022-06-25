@@ -11,6 +11,7 @@ import { Response } from "./Types";
 import InfoRoute from "../routes/info";
 import ProxyRoute from "../routes/proxy";
 import StorageRoute from "../routes/storage";
+import SettingsRoute from "../routes/settings";
 import ApplicationsRoute from "../routes/applications";
 
 const app = express();
@@ -34,6 +35,7 @@ app.use("*", function (req: any, res: any, next: Function) {
 });
 
 app.use("/applications", ApplicationsRoute);
+app.use("/settings", SettingsRoute);
 app.use("/storage", StorageRoute);
 app.use("/proxy", ProxyRoute);
 app.use("/info", InfoRoute);

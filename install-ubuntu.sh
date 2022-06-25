@@ -4,24 +4,23 @@ FRONTEND=/root/dynamo/static/dist
 cd
 rm -r Dynamo
 rm -r dynamo
-rm -r /root/dynamo
-rm -r /var/www/dynamofront
-rm -r $FRONTEND
-mkdir $FRONTEND
 mkdir /root/dynamo
+mkdir $FRONTEND
 
 ## Install Stage
 git clone https://github.com/jareer12/dynamo.git Dynamo
-mv /root/Dynamo/client/* $FRONTEND
+cd Dynamo/client && npm install && npm run build
 mv /root/Dynamo/server/* /root/dynamo
 
 ## Install Frontend
+rm -r $FRONTEND
+mkdir $FRONTEND
+mv /root/Dynamo/client/dist/* $FRONTEND
 cd $FRONTEND
-npm install
-npm run build
-cd /root
+ls
 
 ## Setup Backend
+cd
 cd ./dynamo
 npm install
 npm install forever -g

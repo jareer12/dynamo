@@ -1,0 +1,20 @@
+{
+  "members": {
+    "manage_db": false,
+    "manage_apps": false,
+    "manage_proxy": false,
+    "manage_services": false
+  },
+  "manager": {
+    "manage_db": false,
+    "manage_apps": false,
+    "manage_proxy": false,
+    "manage_services": false
+  },
+  "admin": {
+    "manage_db": false,
+    "manage_apps": false,
+    "manage_proxy": false,
+    "manage_services": false
+  }
+}
