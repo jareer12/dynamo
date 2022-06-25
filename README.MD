@@ -2,6 +2,8 @@
 
 You are most likely tired of large corporates selling your data or charging you a lot of money for small cloud services? This is where Dynamo comes in, what is Dynamo? It's a self-hosted cloud platform application.
 
+![Image](https://i.imgur.com/8slJrDZ.png)
+
 As of today, Dynamo is only available for Ubuntu-based machines.
 
 ## Table of Contents
